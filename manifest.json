@@ -1,5 +1,5 @@
 {
-  "name": "Mozez Atomic Battery — Wohl Engine Co.",
+  "name": "Mozez Atomic Battery — LAB",
   "short_name": "Mozez Atomic",
   "description": "Eternal Cell, Mozez Lion Type Creation, and Mozez Lion Type E — the Mozez radioisotope battery platform. Presale, investment, and contact.",
   "id": "/mozez-atomic-battery-presale/",
@@ -7,8 +7,8 @@
   "scope": "./",
   "display": "standalone",
   "orientation": "any",
-  "background_color": "#EFEAE0",
-  "theme_color": "#15120D",
+  "background_color": "#0B0B0D",
+  "theme_color": "#0B0B0D",
   "icons": [
     { "src": "icons/icon-16.png", "sizes": "16x16", "type": "image/png" },
     { "src": "icons/icon-32.png", "sizes": "32x32", "type": "image/png" },

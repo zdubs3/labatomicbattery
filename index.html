@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Mozez Atomic Battery — Presale &amp; Investment Inquiries</title>
-<meta name="description" content="Mozez Lion Type Creation, Eternal Cell, or the fused Mozez Lion Type E — an atomic powered battery platform from the Wohl Engine Company. Email zachwohl494@gmail.com or wohlmoshe3@gmail.com for pricing, investment, and presale details.">
-<meta name="theme-color" content="#15120D">
+<meta name="description" content="Mozez Lion Type Creation, Eternal Cell, or the fused Mozez Lion Type E — an atomic powered battery platform from LAB. Email zachwohl494@gmail.com or wohlmoshe3@gmail.com for pricing, investment, and presale details.">
+<meta name="theme-color" content="#0B0B0D">
 <meta property="og:title" content="Mozez Atomic Battery — Presale & Investment Inquiries">
 <meta property="og:description" content="Mozez Lion Type Creation, Eternal Cell, or the fused Mozez Lion Type E. Contact us for pricing, investment, and presale details.">
 <meta property="og:type" content="website">
@@ -94,6 +94,11 @@
   .brand .mark{ width: 26px; height: 26px; flex:none; overflow:visible; filter: drop-shadow(0 0 6px color-mix(in srgb, var(--accent) 45%, transparent)); }
   .brand-name{ font-size: 0.8rem; letter-spacing: 0.03em; text-transform: uppercase; color: var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
   .brand-name b{ color: var(--ink); font-weight: 600; }
+  .lab-sq{
+    display:inline-block; width:0.55em; height:0.55em; margin-right:0.22em;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2) 55%, var(--accent-red));
+    border-radius: 2px; vertical-align: middle;
+  }
   .nav-links{ display:none; align-items:center; gap: 22px; font-size: 0.85rem; color: var(--muted); }
   .nav-links a:hover{ color: var(--accent); }
   .topbar .nav-cta{ display:none; }
@@ -201,10 +206,12 @@
     border-top: 1px solid transparent;
     border-image: linear-gradient(90deg, transparent, var(--line) 20%, var(--line) 80%, transparent) 1;
   }
-  /* rotate the primary text color per section so purple, teal, and red are used equally */
-  #safety, #how{ --ink: var(--accent-2); }
+  /* rotate the primary text color per section so teal and red carry more weight than purple */
+  #options, #safety, #how{ --ink: var(--accent-2); }
   #honesty, #contact{ --ink: var(--accent-red); }
   .kicker{ font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 8px; }
+  #how .kicker, #safety .kicker{ color: var(--accent-2); }
+  #honesty .kicker, #contact .kicker{ color: var(--accent-red); }
   h2{ font-size: clamp(1.4rem, 4vw, 1.9rem); margin: 0 0 10px; font-weight: 500; color: var(--ink); }
   .section-desc{ color: var(--muted); font-size: 0.96rem; margin: 0 0 24px; max-width: 62ch; }
 
@@ -216,6 +223,10 @@
     transition: transform 0.15s ease, box-shadow 0.15s ease;
   }
   .opt-card:hover{ transform: translateY(-2px); box-shadow: var(--shadow); }
+  .opt-grid .opt-card:nth-child(2){
+    border-color: var(--accent-2);
+    box-shadow: 0 0 0 1px var(--accent-2), 0 10px 34px color-mix(in srgb, var(--accent-2) 14%, transparent);
+  }
   .opt-card.flagship{
     border-color: var(--accent-red);
     box-shadow: 0 0 0 1px var(--accent-red), 0 10px 34px color-mix(in srgb, var(--accent-red) 16%, transparent);
@@ -247,6 +258,8 @@
     white-space: nowrap; transition: background 0.15s ease, color 0.15s ease;
   }
   .opt-select-btn:hover{ background: var(--accent); color: #FFF7EC; }
+  .opt-select-btn.teal-btn{ border-color: var(--accent-2); color: var(--accent-2); }
+  .opt-select-btn.teal-btn:hover{ background: var(--accent-2); color: #FFF7EC; }
 
   /* ---------- comparison table ---------- */
   .compare-wrap{ margin-top: 28px; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
@@ -416,7 +429,7 @@
           <path d="M50,50 L46,56.93 A8,8 0 0 1 46,43.07 Z" fill="var(--accent-2)"/>
           <path d="M50,50 L46,43.07 A8,8 0 0 1 58,50 Z" fill="var(--accent-red)"/>
         </svg>
-        <span class="brand-name"><b>Atomic Battery</b></span>
+        <span class="brand-name"><span class="lab-sq"></span><b>LAB</b></span>
       </div>
       <nav class="nav-links">
         <a href="#options">Options</a>
@@ -463,7 +476,7 @@
         <div class="opt-card">
           <div class="opt-top">
             <div>
-              <div class="opt-name">Mozez Lion Type Creation</div>
+              <div class="opt-name" style="color:var(--accent);">Mozez Lion Type Creation</div>
               <div class="opt-sub">29 years of power, no charging needed.</div>
             </div>
             <span class="opt-tag outline">Pure Atomic</span>
@@ -492,7 +505,7 @@
           <div class="opt-benefit">Trades power for time &mdash; this core will still
             be delivering current when today's electronics are museum pieces.</div>
           <div class="opt-cta-row">
-            <button class="opt-select-btn" data-tier="Eternal Cell">Ask about Eternal Cell &rarr;</button>
+            <button class="opt-select-btn teal-btn" data-tier="Eternal Cell">Ask about Eternal Cell &rarr;</button>
           </div>
         </div>
 
@@ -517,10 +530,10 @@
 
       <div class="honesty-box" style="margin-top:28px;">
         <p style="margin:0; color:var(--muted); font-size:0.9rem;"><b style="color:var(--ink);">Which one is right for you?</b> Want
-          steady power right now &mdash; pick <b style="color:var(--ink);">Type C</b>. Want
-          power that essentially never runs out &mdash; pick <b style="color:var(--ink);">Eternal Cell</b>.
+          steady power right now &mdash; pick <b style="color:var(--accent);">Type C</b>. Want
+          power that essentially never runs out &mdash; pick <b style="color:var(--accent-2);">Eternal Cell</b>.
           Want both a never-dies base load and a burst of extra power on demand &mdash;
-          pick <b style="color:var(--ink);">Mozez Lion Type E</b>. Pricing is on request &mdash; email us.</p>
+          pick <b style="color:var(--accent-red);">Mozez Lion Type E</b>. Pricing is on request &mdash; email us.</p>
       </div>
     </div>
   </section>
@@ -663,7 +676,6 @@
         <a class="email-btn" href="mailto:zachwohl494@gmail.com">zachwohl494@gmail.com <span class="arrow">&rarr;</span></a>
         <a class="email-btn" href="mailto:wohlmoshe3@gmail.com">wohlmoshe3@gmail.com <span class="arrow">&rarr;</span></a>
         <a class="email-btn" href="https://www.instagram.com/wohl_engine_co?utm_source=qr" target="_blank" rel="noopener">@wohl_engine_co <span class="arrow">&rarr;</span></a>
-        <a class="email-btn" href="https://www.instagram.com/the_wohl_engine_company_?utm_source=qr" target="_blank" rel="noopener">@the_wohl_engine_company_ <span class="arrow">&rarr;</span></a>
       </div>
       <div class="or-divider">or send an inquiry</div>
 
@@ -700,15 +712,14 @@
   <footer>
     <div class="wrap footer-row">
       <p class="footer-note">Mozez Atomic Battery (Mozez Lion Type Creation / Eternal Cell /
-        Mozez Lion Type E) is a concept-stage program of the Wohl Engine Company.
+        Mozez Lion Type E) is a concept-stage program of LAB.
         Specifications reflect internal engineering work and are subject to
         change through licensing and prototyping.
         <br>Pricing, investment, and presale questions:
         <a href="mailto:zachwohl494@gmail.com" class="link">zachwohl494@gmail.com</a>
         or <a href="mailto:wohlmoshe3@gmail.com" class="link">wohlmoshe3@gmail.com</a>
         &mdash; or find us on Instagram
-        <a href="https://www.instagram.com/wohl_engine_co?utm_source=qr" class="link" target="_blank" rel="noopener">@wohl_engine_co</a>
-        or <a href="https://www.instagram.com/the_wohl_engine_company_?utm_source=qr" class="link" target="_blank" rel="noopener">@the_wohl_engine_company_</a></p>
+        <a href="https://www.instagram.com/wohl_engine_co?utm_source=qr" class="link" target="_blank" rel="noopener">@wohl_engine_co</a></p>
       <p class="footer-note mono">&#9883; Mozez Atomic Battery</p>
     </div>
   </footer>
