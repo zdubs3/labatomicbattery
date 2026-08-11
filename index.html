@@ -23,40 +23,25 @@
 <body>
 <style>
   :root{
-    --bg:#EFEAE0;
-    --surface:#FAF7F0;
-    --surface-2:#FFFFFF;
-    --ink:#1B1712;
-    --muted:#6B6255;
-    --accent:#9C2B58;
-    --accent-hot:#B83D6E;
-    --accent-2:#0A7EA6;
-    --accent-red:#C23B3B;
-    --accent-red-hot:#D6584F;
-    --line:#DDD4C2;
-    --shadow: 0 1px 2px rgba(27,23,18,0.05), 0 8px 24px rgba(27,23,18,0.05);
-    --glow-a: rgba(156,43,88,0.16);
-    --glow-b: rgba(10,126,166,0.16);
-    --glow-c: rgba(194,59,59,0.14);
-    --btn-grad: linear-gradient(135deg, #B83D6E, #9C2B58);
-    --btn-grad-red: linear-gradient(135deg, #D6584F, #C23B3B);
-    --btn-shadow: 0 6px 18px rgba(156,43,88,0.28);
-    color-scheme: light;
-  }
-  @media (prefers-color-scheme: dark){
-    :root{
-      --bg:#15120D; --surface:#1C1811; --surface-2:#211C14; --ink:#F2ECDD;
-      --muted:#A79C89; --accent:#E0679E; --accent-hot:#EF85B4; --accent-2:#3FC9E8; --line:#332C20;
-      --accent-red:#E2685F; --accent-red-hot:#EF8981;
-      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
-      --glow-a: rgba(224,103,158,0.28);
-      --glow-b: rgba(63,201,232,0.24);
-      --glow-c: rgba(226,104,95,0.24);
-      --btn-grad: linear-gradient(135deg, #EF85B4, #E0679E);
-      --btn-grad-red: linear-gradient(135deg, #EF8981, #E2685F);
-      --btn-shadow: 0 6px 22px rgba(224,103,158,0.4);
-      color-scheme: dark;
-    }
+    --bg:#0B0B0D;
+    --surface:#18171C;
+    --surface-2:#201F26;
+    --ink:#C77DFF;
+    --muted:#9C93AC;
+    --accent:#E14FD6;
+    --accent-hot:#ED77E0;
+    --accent-2:#22D3EE;
+    --accent-red:#FF4D6D;
+    --accent-red-hot:#FF7A93;
+    --line:#322F3A;
+    --shadow: 0 1px 2px rgba(0,0,0,0.5), 0 10px 30px rgba(0,0,0,0.55);
+    --glow-a: rgba(225,79,214,0.22);
+    --glow-b: rgba(34,211,238,0.18);
+    --glow-c: rgba(255,77,109,0.20);
+    --btn-grad: linear-gradient(135deg, #ED77E0, #E14FD6);
+    --btn-grad-red: linear-gradient(135deg, #FF7A93, #FF4D6D);
+    --btn-shadow: 0 6px 20px rgba(225,79,214,0.35);
+    color-scheme: dark;
   }
   *{ box-sizing:border-box; -webkit-tap-highlight-color: transparent; }
   html{ -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
@@ -486,7 +471,7 @@
         <div class="opt-card">
           <div class="opt-top">
             <div>
-              <div class="opt-name">Eternal Cell</div>
+              <div class="opt-name" style="color:var(--accent-2);">Eternal Cell</div>
               <div class="opt-sub">432 years of power, never needs a charge.</div>
             </div>
             <span class="opt-tag outline">Pure Atomic</span>
@@ -504,7 +489,7 @@
         <div class="opt-card flagship">
           <div class="opt-top">
             <div>
-              <div class="opt-name">Mozez Lion Type E</div>
+              <div class="opt-name" style="color:var(--accent-red);">Mozez Lion Type E</div>
               <div class="opt-sub">the flagship &mdash; atomic power plus a burst boost</div>
             </div>
             <span class="opt-tag">Fusion</span>
@@ -571,11 +556,6 @@
           </div>
         </div>
       </div>
-
-      <p class="hero-note" style="margin-top:24px;">These are the safety design
-        targets this program is built around &mdash; not certifications this
-        product already holds. Nothing ships until the required government
-        licensing is complete.</p>
     </div>
   </section>
 
@@ -612,14 +592,6 @@
       <h2 class="display">What to know before you contact us.</h2>
       <p class="section-desc">This is a real early-stage engineering program, not a
         shipping product. We'd rather you know that going in.</p>
-
-      <div class="honesty-box">
-        <h3>What contacting us gets you</h3>
-        <ul>
-          <li>A direct conversation with the founder &mdash; current specs, timeline, and real cost figures for the option you're interested in.</li>
-          <li>No checkout, no card details collected here, and nothing is charged by emailing or filling out the form below.</li>
-        </ul>
-      </div>
 
       <div class="faq-grid">
         <details>
@@ -734,7 +706,7 @@
 </div>
 
 <div class="sticky-cta">
-  <span class="sticky-cta-note">Pricing on request &middot; no charge to inquire</span>
+  <span class="sticky-cta-note">Pricing on request</span>
   <a class="btn" href="#contact">Contact us</a>
 </div>
 
