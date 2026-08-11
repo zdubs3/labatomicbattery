@@ -19,6 +19,9 @@
 <link rel="apple-touch-icon" sizes="180x180" href="icons/icon-180.png">
 <link rel="icon" type="image/png" sizes="32x32" href="icons/icon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="icons/icon-16.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 <style>
@@ -63,10 +66,11 @@
     padding-bottom: 84px; /* room for sticky CTA on mobile */
   }
   .display{
-    font-family: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     text-wrap: balance;
+    letter-spacing: -0.01em;
   }
-  .mono{ font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-variant-numeric: tabular-nums; }
+  .mono{ font-family: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-variant-numeric: tabular-nums; }
 
   .wrap{ max-width: 620px; margin: 0 auto; padding: 0 18px; }
   a{ color: inherit; }
@@ -149,7 +153,7 @@
     display:inline-flex; align-items:center; justify-content:center; gap:8px;
     background: var(--btn-grad); color: #FFF7EC;
     border: none; padding: 15px 20px; font-size: 1rem; font-weight: 600;
-    cursor: pointer; text-decoration:none; border-radius: 7px; width: 100%;
+    cursor: pointer; text-decoration:none; border-radius: 3px; width: 100%;
     box-shadow: var(--btn-shadow);
     transition: box-shadow 0.2s ease, transform 0.15s ease, filter 0.15s ease;
   }
@@ -160,13 +164,13 @@
   }
   .btn-ghost{ background: none; color: var(--ink); border: 1px solid var(--line); box-shadow:none; }
   .btn-ghost:hover{ border-color: var(--accent); color: var(--accent); background:none; box-shadow:none; transform:none; }
-  .btn-sm{ width:auto; padding: 9px 16px; font-size: 0.85rem; border-radius: 6px; box-shadow:none; }
+  .btn-sm{ width:auto; padding: 9px 16px; font-size: 0.85rem; border-radius: 3px; box-shadow:none; }
   .btn-sm:hover{ box-shadow: 0 6px 16px color-mix(in srgb, var(--accent) 32%, transparent); }
   .hero-note{ font-size: 0.78rem; color: var(--muted); margin-top: 14px; }
 
   /* ---------- chart card ---------- */
   .chart-card{
-    background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
+    background: var(--surface); border: 1px solid var(--line); border-radius: 5px;
     padding: 20px 20px 14px; box-shadow: var(--shadow);
   }
   .symbol-card{
@@ -218,7 +222,7 @@
   /* ---------- option cards (the 3 choices) ---------- */
   .opt-grid{ display:grid; grid-template-columns: 1fr; gap: 16px; }
   .opt-card{
-    background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
+    background: var(--surface); border: 1px solid var(--line); border-radius: 5px;
     padding: 22px; display:flex; flex-direction:column;
     transition: transform 0.15s ease, box-shadow 0.15s ease;
   }
@@ -254,7 +258,7 @@
   .opt-cta-row{ margin-top:auto; }
   .opt-select-btn{
     width:100%; padding: 12px 16px; border: 1px solid var(--accent); background: var(--surface-2);
-    color: var(--accent); font-size: 0.88rem; border-radius: 6px; cursor:pointer; font-weight: 600;
+    color: var(--accent); font-size: 0.88rem; border-radius: 3px; cursor:pointer; font-weight: 600;
     white-space: nowrap; transition: background 0.15s ease, color 0.15s ease;
   }
   .opt-select-btn:hover{ background: var(--accent); color: #FFF7EC; }
@@ -262,7 +266,7 @@
   .opt-select-btn.teal-btn:hover{ background: var(--accent-2); color: #FFF7EC; }
 
   /* ---------- comparison table ---------- */
-  .compare-wrap{ margin-top: 28px; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+  .compare-wrap{ margin-top: 28px; border: 1px solid var(--line); border-radius: 5px; overflow: hidden; }
   .compare-scroll{ overflow-x: auto; }
   table.compare{ width: 100%; border-collapse: collapse; min-width: 480px; background: var(--surface); }
   table.compare th, table.compare td{ padding: 12px 16px; text-align: left; font-size: 0.88rem; border-bottom: 1px solid var(--line); }
@@ -279,7 +283,7 @@
   /* ---------- how it works ---------- */
   .flow-grid{ display:grid; grid-template-columns: 1fr; gap: 12px; }
   .flow-step{
-    background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 18px 16px;
+    background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 18px 16px;
     display:flex; gap:14px; align-items:flex-start;
   }
   .flow-step .num{
@@ -292,7 +296,7 @@
   /* ---------- safety & containment ---------- */
   .safety-grid{ display:grid; grid-template-columns: 1fr; gap: 14px; }
   .safety-item{
-    background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 18px 18px 20px;
+    background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 18px 18px 20px;
     display:flex; gap:14px; align-items:flex-start;
   }
   .safety-item .glyph{
@@ -314,7 +318,7 @@
   /* ---------- honesty / FAQ ---------- */
   .honesty-box{
     background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--accent);
-    border-radius: 10px; padding: 18px 18px; margin-bottom: 14px;
+    border-radius: 4px; padding: 18px 18px; margin-bottom: 14px;
   }
   .honesty-box h3{ font-size: 0.92rem; margin: 0 0 10px; }
   .honesty-box ul{ margin: 0; padding-left: 18px; color: var(--muted); font-size: 0.88rem; }
@@ -322,7 +326,7 @@
 
   .faq-grid{ display:block; }
   details{
-    background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+    background: var(--surface); border: 1px solid var(--line); border-radius: 4px;
     padding: 15px 16px; margin-bottom: 10px;
   }
   summary{ cursor: pointer; font-weight: 600; font-size: 0.92rem; list-style: none; display:flex; justify-content:space-between; align-items:center; gap:10px; color: var(--ink); }
@@ -346,7 +350,7 @@
   .email-row{ display:flex; flex-direction:column; gap: 10px; margin-bottom: 26px; max-width: 420px; }
   .email-btn{
     display:flex; align-items:center; justify-content:space-between; gap:10px;
-    background: var(--surface); border: 1px solid var(--line); border-radius: 8px;
+    background: var(--surface); border: 1px solid var(--line); border-radius: 3px;
     padding: 13px 16px; text-decoration:none; color: var(--ink); font-size: 0.92rem; font-weight:600;
     transition: border-color 0.15s ease, color 0.15s ease;
   }
@@ -356,14 +360,14 @@
   .or-divider::before, .or-divider::after{ content:""; flex:1; height:1px; background: var(--line); }
 
   .contact-card{
-    background: var(--surface-2); border: 1px solid var(--line); border-radius: 12px;
+    background: var(--surface-2); border: 1px solid var(--line); border-radius: 5px;
     padding: 24px 20px; display:grid; grid-template-columns: 1fr; gap: 18px; box-shadow: var(--shadow);
   }
   .contact-card .full{ grid-column: 1 / -1; }
   label{ font-size: 0.72rem; letter-spacing: 0.03em; text-transform: uppercase; color: var(--muted); display:block; margin-bottom: 6px; }
   input, select, textarea{
     width: 100%; padding: 13px 12px; border: 1px solid var(--line); background: var(--surface);
-    color: var(--ink); font-size: 1rem; border-radius: 7px; font-family: inherit;
+    color: var(--ink); font-size: 1rem; border-radius: 3px; font-family: inherit;
   }
   textarea{ resize: vertical; min-height: 90px; }
   input:focus, select:focus, textarea:focus{ border-color: var(--accent); outline: none; }
@@ -432,10 +436,10 @@
         <span class="brand-name"><span class="lab-sq"></span><b>LAB</b></span>
       </div>
       <nav class="nav-links">
-        <a href="#options">Options</a>
-        <a href="#safety">Safety</a>
-        <a href="#how">How it works</a>
-        <a href="#honesty">FAQ</a>
+        <a href="#options" style="color:var(--accent);">Options</a>
+        <a href="#safety" style="color:var(--accent-2);">Safety</a>
+        <a href="#how" style="color:var(--accent-2);">How it works</a>
+        <a href="#honesty" style="color:var(--accent-red);">FAQ</a>
       </nav>
       <a class="btn btn-sm nav-cta" href="#contact">Contact &rarr;</a>
     </div>
@@ -444,14 +448,13 @@
   <div class="hero">
     <div class="wrap hero-grid">
       <div class="fade-up">
-        <h1 class="display"><span style="color:var(--accent);">Atomic Battery Power</span> Lasting Over <span style="color:var(--accent-2);">400 Years</span> Without <span style="color:var(--accent-red);">A Single Charge</span></h1>
+        <h1 class="display"><span style="color:var(--accent);">Atomic Battery Power</span> Lasting Over <span style="color:var(--accent-2);">400 Years</span> <span style="color:var(--accent-red);">Without A Single Charge</span></h1>
         <div class="hero-actions">
           <a class="btn" href="#contact">Contact us &rarr;</a>
           <a class="btn btn-ghost" href="#options">Compare the three options</a>
         </div>
         <p class="hero-note">Pricing isn't posted here &mdash; email
-          us for current details, investment terms, and presale timing. See
-          <a href="#honesty" class="link">honesty notes</a> before you reach out.</p>
+          us for current details, investment terms, and presale timing.</p>
       </div>
 
       <div class="chart-card fade-up d2 symbol-card">
