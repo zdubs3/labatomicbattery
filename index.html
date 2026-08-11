@@ -9,7 +9,16 @@
 <meta property="og:title" content="Mozez Atomic Battery — Presale & Investment Inquiries">
 <meta property="og:description" content="Mozez Lion Type Creation, Eternal Cell, or the fused Mozez Lion Type E. Contact us for pricing, investment, and presale details.">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%9B%EF%B8%8F%3C/text%3E%3C/svg%3E">
+
+<!-- PWA: installable as an app on Mac (Chrome/Edge "Install") and Android (Chrome "Add to Home screen") -->
+<link rel="manifest" href="manifest.json">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Mozez Atomic">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/icon-180.png">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/icon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="icons/icon-16.png">
 </head>
 <body>
 <style>
@@ -882,6 +891,17 @@
       });
     }
   })();
+
+  // Register service worker so the page installs as an app (Mac: Chrome/Edge
+  // "Install Mozez Atomic..."; Android: Chrome menu "Add to Home screen" /
+  // install banner) and keeps working offline once installed.
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function () {
+      navigator.serviceWorker.register("sw.js").catch(function (err) {
+        console.warn("Service worker registration failed:", err);
+      });
+    });
+  }
 </script>
 
 </body>
