@@ -247,6 +247,28 @@
   .flow-step h3{ font-size: 0.95rem; margin: 0 0 4px; }
   .flow-step p{ font-size: 0.85rem; color: var(--muted); margin: 0; }
 
+  /* ---------- safety & containment ---------- */
+  .safety-grid{ display:grid; grid-template-columns: 1fr; gap: 14px; }
+  .safety-item{
+    background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 18px 18px 20px;
+    display:flex; gap:14px; align-items:flex-start;
+  }
+  .safety-item .glyph{
+    flex:none; width: 34px; height: 34px; border-radius: 50%;
+    display:flex; align-items:center; justify-content:center;
+    background: color-mix(in srgb, var(--accent-2) 14%, transparent);
+    color: var(--accent-2); font-size: 1rem; font-weight:700;
+  }
+  .safety-item h3{ font-size: 0.95rem; margin: 0 0 5px; }
+  .safety-item p{ font-size: 0.86rem; color: var(--muted); margin: 0; }
+  .standards-strip{
+    display:flex; flex-wrap:wrap; gap: 9px; margin-top: 24px;
+  }
+  .standard-chip{
+    font-size: 0.72rem; color: var(--muted); background: var(--surface);
+    border: 1px solid var(--line); border-radius: 20px; padding: 6px 12px;
+  }
+
   /* ---------- honesty / FAQ ---------- */
   .honesty-box{
     background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--accent);
@@ -318,6 +340,7 @@
     .opt-card.flagship{ grid-column: 1 / -1; }
     .contact-card{ grid-template-columns: 1fr 1fr; }
     .flow-grid{ grid-template-columns: repeat(3, 1fr); }
+    .safety-grid{ grid-template-columns: 1fr 1fr; }
     .footer-row{ flex-direction:row; justify-content:space-between; align-items:flex-end; }
     .email-row{ flex-direction:row; max-width:none; }
     .email-btn{ flex:1; }
@@ -350,6 +373,7 @@
       </div>
       <nav class="nav-links">
         <a href="#options">Options</a>
+        <a href="#safety">Safety</a>
         <a href="#how">How it works</a>
         <a href="#honesty">FAQ</a>
       </nav>
@@ -532,6 +556,10 @@
                 <td class="flagship-col">none</td>
               </tr>
               <tr>
+                <td class="row-label">Containment</td>
+                <td colspan="3">Hermetic Ti-6Al-4V can, laser-welded, helium leak-tested</td>
+              </tr>
+              <tr>
                 <td class="row-label">Pricing</td>
                 <td colspan="3"><b>On request &mdash; email us</b></td>
               </tr>
@@ -545,6 +573,72 @@
           ability to punch out a burst of real power &mdash; pick the <b>Eternal Cell</b>.
         </div>
       </div>
+    </div>
+  </section>
+
+  <section id="safety">
+    <div class="wrap">
+      <div class="kicker">Containment &amp; safety</div>
+      <h2 class="display">Designed to fail safe, not just work well.</h2>
+      <p class="section-desc">This is the containment design and the regulatory
+        path it's built around &mdash; not a finished, certified product. Every
+        core &mdash; Sr-90, Am-241, or inside an Eternal Cell &mdash; is
+        engineered to the same containment spec, and follows the same regime
+        that already governs industrial gauges and medical sealed sources.</p>
+
+      <div class="safety-grid">
+        <div class="safety-item">
+          <span class="glyph">&#128274;</span>
+          <div>
+            <h3>Hermetic titanium shell (design spec)</h3>
+            <p>The design calls for a laser-welded <b>Ti-6Al-4V</b> (aerospace-grade
+              titanium) can, engineered to a helium leak-tight spec of
+              &le;1&times;10&#8315;&#8313; mbar&middot;L/s. Every unit that reaches
+              production is planned to be wipe-tested and dose-surveyed before it
+              leaves the facility &mdash; that qualification hasn't happened yet.</p>
+          </div>
+        </div>
+        <div class="safety-item">
+          <span class="glyph">&#128737;&#65039;</span>
+          <div>
+            <h3>Shielding sized to the isotope</h3>
+            <p>Sr-90 units are designed with a low-Z bremsstrahlung shield for its
+              beta emission; Am-241 units with a gamma shield sized to keep
+              external dose at or below the facility limit. Not a one-size-fits-all
+              shield.</p>
+          </div>
+        </div>
+        <div class="safety-item">
+          <span class="glyph">&#9878;</span>
+          <div>
+            <h3>Built for independent classification</h3>
+            <p>Every core is designed to the <b>ISO 2919</b> sealed-source
+              standard &mdash; independently rated for temperature, external
+              pressure, impact, vibration, and puncture resistance. Formal
+              classification happens during licensing, before any unit ships.</p>
+          </div>
+        </div>
+        <div class="safety-item">
+          <span class="glyph">&#9989;</span>
+          <div>
+            <h3>Never handled raw, by design</h3>
+            <p>The plan sources the isotope pre-encapsulated and leak-tested from
+              an already-licensed supplier, so nobody on the assembly line would
+              ever open, machine, or handle bare radioactive material.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="standards-strip">
+        <span class="standard-chip">ISO 2919 &mdash; sealed source classification</span>
+        <span class="standard-chip">10 CFR Part 30/32 &mdash; NRC byproduct material license</span>
+        <span class="standard-chip">10 CFR 71 / 49 CFR 173 &mdash; radioactive transport</span>
+        <span class="standard-chip">UL 1642 / 2580 &mdash; battery safety</span>
+      </div>
+      <p class="hero-note" style="margin-top:18px;">These are the design targets and
+        the licensing framework this program is built for &mdash; not
+        certifications this product already holds. Nothing ships until that
+        licensing is complete.</p>
     </div>
   </section>
 
@@ -602,11 +696,14 @@
         <details>
           <summary>Is this actually radioactive?</summary>
           <p>Yes. Sr-90 and Am-241 are both real, commercially licensable isotopes
-            already used in industrial gauges and radioisotope generators. Every unit
-            ships in a hermetic, shielded enclosure sized for the isotope inside, and
-            any unit that reaches a customer will be regulated and licensed
-            accordingly. Reaching out does not put a radioactive device in your
-            hands today.</p>
+            already used in industrial gauges and radioisotope generators. The
+            design calls for a hermetic, laser-welded titanium (Ti-6Al-4V) can,
+            helium leak-tested and built to the ISO 2919 sealed-source standard,
+            with shielding sized for the isotope inside &mdash; see
+            <a href="#safety" class="link">containment &amp; safety</a> for the full
+            rundown and what's still design-stage versus certified. Any unit that
+            reaches a customer will be regulated and licensed accordingly.
+            Reaching out does not put a radioactive device in your hands today.</p>
         </details>
 
         <details>
@@ -741,7 +838,7 @@
     // AND IntersectionObserver exists, so nothing ever disappears for anyone else.
     if('IntersectionObserver' in window){
       var revealTargets = document.querySelectorAll(
-        '.opt-card, .flow-step, .compare-wrap, .honesty-box, .faq-grid details, .contact-card, .email-row'
+        '.opt-card, .flow-step, .safety-item, .compare-wrap, .honesty-box, .faq-grid details, .contact-card, .email-row'
       );
       var io = new IntersectionObserver(function(entries){
         entries.forEach(function(entry, i){
