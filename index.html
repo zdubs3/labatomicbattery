@@ -21,7 +21,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="icons/icon-16.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
 <style>
@@ -34,15 +34,15 @@
     --accent:#C77DFF;
     --accent-hot:#D89EFF;
     --accent-2:#22D3EE;
-    --accent-red:#FF4D6D;
-    --accent-red-hot:#FF7A93;
+    --accent-red:#E8102F;
+    --accent-red-hot:#FF3352;
     --line:#322F3A;
     --shadow: 0 1px 2px rgba(0,0,0,0.5), 0 10px 30px rgba(0,0,0,0.55);
     --glow-a: rgba(199,125,255,0.20);
     --glow-b: rgba(34,211,238,0.20);
-    --glow-c: rgba(255,77,109,0.20);
+    --glow-c: rgba(232,16,47,0.22);
     --btn-grad: linear-gradient(135deg, #D89EFF, #C77DFF);
-    --btn-grad-red: linear-gradient(135deg, #FF7A93, #FF4D6D);
+    --btn-grad-red: linear-gradient(135deg, #FF3352, #E8102F);
     --btn-shadow: 0 6px 20px rgba(199,125,255,0.35);
     color-scheme: dark;
   }
@@ -66,11 +66,11 @@
     padding-bottom: 84px; /* room for sticky CTA on mobile */
   }
   .display{
-    font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-family: "VT323", "Share Tech Mono", ui-monospace, monospace;
     text-wrap: balance;
-    letter-spacing: -0.01em;
+    letter-spacing: 0.01em;
   }
-  .mono{ font-family: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-variant-numeric: tabular-nums; }
+  .mono{ font-family: "Share Tech Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-variant-numeric: tabular-nums; }
 
   .wrap{ max-width: 620px; margin: 0 auto; padding: 0 18px; }
   a{ color: inherit; }
@@ -141,7 +141,7 @@
     0%,100%{ box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 45%, transparent); }
     50%{ box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent) 0%, transparent); }
   }
-  h1{ font-size: clamp(1.9rem, 6.5vw, 2.9rem); line-height: 1.08; margin: 0 0 14px; font-weight: 500; letter-spacing: -0.01em; }
+  h1{ font-size: clamp(2.3rem, 7.8vw, 3.6rem); line-height: 1.08; margin: 0 0 14px; font-weight: 500; letter-spacing: 0.01em; }
   h1 em{ font-style: normal; color: var(--accent); }
   @media (prefers-color-scheme: dark){
     h1 em{ text-shadow: 0 0 28px color-mix(in srgb, var(--accent) 55%, transparent); }
@@ -151,7 +151,7 @@
   .hero-actions{ display:flex; flex-direction:column; gap: 10px; max-width: 360px; }
   .btn{
     display:inline-flex; align-items:center; justify-content:center; gap:8px;
-    background: var(--btn-grad); color: #FFF7EC;
+    background: var(--btn-grad); color: var(--accent-2);
     border: none; padding: 15px 20px; font-size: 1rem; font-weight: 600;
     cursor: pointer; text-decoration:none; border-radius: 3px; width: 100%;
     box-shadow: var(--btn-shadow);
@@ -182,8 +182,8 @@
     filter: drop-shadow(0 0 30px color-mix(in srgb, var(--accent) 35%, transparent));
   }
   .symbol-tagline{
-    font-family: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-    font-size: 1.35rem; line-height:1.3; color: var(--ink); margin:0;
+    font-family: "VT323", "Share Tech Mono", monospace;
+    font-size: 1.7rem; line-height:1.3; color: var(--ink); margin:0; letter-spacing:0.01em;
   }
   .chart-title{ font-size: 0.72rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
   .chart-sub{ font-size: 0.82rem; color: var(--muted); margin-bottom: 12px; }
@@ -216,7 +216,7 @@
   .kicker{ font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 8px; }
   #how .kicker, #safety .kicker{ color: var(--accent-2); }
   #honesty .kicker, #contact .kicker{ color: var(--accent-red); }
-  h2{ font-size: clamp(1.4rem, 4vw, 1.9rem); margin: 0 0 10px; font-weight: 500; color: var(--ink); }
+  h2{ font-size: clamp(1.7rem, 5vw, 2.4rem); margin: 0 0 10px; font-weight: 500; color: var(--ink); }
   .section-desc{ color: var(--muted); font-size: 0.96rem; margin: 0 0 24px; max-width: 62ch; }
 
   /* ---------- option cards (the 3 choices) ---------- */
@@ -241,12 +241,12 @@
   .opt-card.flagship .opt-select-btn{
     border-color: var(--accent-red); color: var(--accent-red);
   }
-  .opt-card.flagship .opt-select-btn:hover{ background: var(--accent-red); color: #FFF7EC; }
+  .opt-card.flagship .opt-select-btn:hover{ background: var(--accent-red); color: var(--accent-2); }
   .opt-top{ display:flex; align-items:flex-start; justify-content: space-between; gap: 10px; margin-bottom: 4px; }
-  .opt-name{ font-family: ui-serif, Georgia, serif; font-size: 1.3rem; }
+  .opt-name{ font-family: "VT323", "Share Tech Mono", monospace; font-size: 1.7rem; letter-spacing: 0.01em; }
   .opt-tag{
     font-size: 0.62rem; letter-spacing: 0.06em; text-transform: uppercase;
-    background: var(--btn-grad-red); color: #FFF7EC; padding: 4px 8px; border-radius: 3px; white-space: nowrap;
+    background: var(--btn-grad-red); color: var(--accent-2); padding: 4px 8px; border-radius: 3px; white-space: nowrap;
   }
   .opt-tag.outline{ background:none; border:1px solid var(--line); color: var(--muted); }
   .opt-tag.outline:hover{ border-color: var(--accent-2); color: var(--accent-2); }
@@ -261,9 +261,9 @@
     color: var(--accent); font-size: 0.88rem; border-radius: 3px; cursor:pointer; font-weight: 600;
     white-space: nowrap; transition: background 0.15s ease, color 0.15s ease;
   }
-  .opt-select-btn:hover{ background: var(--accent); color: #FFF7EC; }
+  .opt-select-btn:hover{ background: var(--accent); color: var(--accent-2); }
   .opt-select-btn.teal-btn{ border-color: var(--accent-2); color: var(--accent-2); }
-  .opt-select-btn.teal-btn:hover{ background: var(--accent-2); color: #FFF7EC; }
+  .opt-select-btn.teal-btn:hover{ background: var(--accent-2); color: var(--accent); }
 
   /* ---------- comparison table ---------- */
   .compare-wrap{ margin-top: 28px; border: 1px solid var(--line); border-radius: 5px; overflow: hidden; }
@@ -287,7 +287,7 @@
     display:flex; gap:14px; align-items:flex-start;
   }
   .flow-step .num{
-    font-family: ui-serif, Georgia, serif; font-size: 1.3rem; color: var(--accent);
+    font-family: "VT323", "Share Tech Mono", monospace; font-size: 1.7rem; color: var(--accent);
     flex: none; width: 1.4em;
   }
   .flow-step h3{ font-size: 0.95rem; margin: 0 0 4px; color: var(--ink); }
@@ -339,13 +339,13 @@
   .founder-card{ display:flex; align-items:center; gap: 14px; margin: 6px 0 24px; }
   .founder-avatar{
     width: 56px; height: 56px; border-radius: 50%; flex: none;
-    background: var(--btn-grad); color: #FFF7EC;
+    background: var(--btn-grad); color: var(--accent-2);
     display:flex; align-items:center; justify-content:center;
-    font-family: ui-serif, Georgia, serif; font-size: 1.1rem; font-weight:600;
+    font-family: "VT323", monospace; font-size: 1.3rem; font-weight:600;
     overflow:hidden;
   }
   .founder-avatar img{ width:100%; height:100%; object-fit:cover; }
-  .founder-name{ font-family: ui-serif, Georgia, serif; font-size: 1.05rem; font-weight:600; color: var(--ink); }
+  .founder-name{ font-family: "VT323", "Share Tech Mono", monospace; font-size: 1.35rem; letter-spacing: 0.01em; font-weight:600; color: var(--ink); }
   .founder-title{ font-size: 0.78rem; color: var(--muted); text-transform:uppercase; letter-spacing: 0.06em; margin-top: 2px; }
   .email-row{ display:flex; flex-direction:column; gap: 10px; margin-bottom: 26px; max-width: 420px; }
   .email-btn{
