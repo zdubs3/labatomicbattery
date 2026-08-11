@@ -30,13 +30,13 @@
     --muted:#6B6255;
     --accent:#9C2B58;
     --accent-hot:#B83D6E;
-    --accent-2:#0E7A72;
+    --accent-2:#0A7EA6;
     --accent-red:#C23B3B;
     --accent-red-hot:#D6584F;
     --line:#DDD4C2;
     --shadow: 0 1px 2px rgba(27,23,18,0.05), 0 8px 24px rgba(27,23,18,0.05);
     --glow-a: rgba(156,43,88,0.16);
-    --glow-b: rgba(14,122,114,0.14);
+    --glow-b: rgba(10,126,166,0.16);
     --glow-c: rgba(194,59,59,0.14);
     --btn-grad: linear-gradient(135deg, #B83D6E, #9C2B58);
     --btn-grad-red: linear-gradient(135deg, #D6584F, #C23B3B);
@@ -46,11 +46,11 @@
   @media (prefers-color-scheme: dark){
     :root{
       --bg:#15120D; --surface:#1C1811; --surface-2:#211C14; --ink:#F2ECDD;
-      --muted:#A79C89; --accent:#E0679E; --accent-hot:#EF85B4; --accent-2:#4FD1C5; --line:#332C20;
+      --muted:#A79C89; --accent:#E0679E; --accent-hot:#EF85B4; --accent-2:#3FC9E8; --line:#332C20;
       --accent-red:#E2685F; --accent-red-hot:#EF8981;
       --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
       --glow-a: rgba(224,103,158,0.28);
-      --glow-b: rgba(79,209,197,0.22);
+      --glow-b: rgba(63,201,232,0.24);
       --glow-c: rgba(226,104,95,0.24);
       --btn-grad: linear-gradient(135deg, #EF85B4, #E0679E);
       --btn-grad-red: linear-gradient(135deg, #EF8981, #E2685F);
@@ -421,7 +421,7 @@
     <div class="wrap">
       <div class="brand">
         <span class="mark">&#9883;</span>
-        <span class="brand-name">Wohl Engine Co. &mdash; <b>Mozez Atomic Battery</b></span>
+        <span class="brand-name">Wohl Engine Co. &mdash; <b>Atomic Battery</b></span>
       </div>
       <nav class="nav-links">
         <a href="#options">Options</a>
@@ -436,12 +436,12 @@
   <div class="hero">
     <div class="wrap hero-grid">
       <div class="fade-up">
-        <h1 class="display">Atomic Battery Power Lasting Over 400 Years Without A Single Charge</h1>
+        <h1 class="display"><span style="color:var(--accent);">Atomic Battery Power</span> Lasting Over <span style="color:var(--accent-2);">400 Years</span> Without <span style="color:var(--accent-red);">A Single Charge</span></h1>
         <div class="hero-actions">
           <a class="btn" href="#contact">Contact us &rarr;</a>
           <a class="btn btn-ghost" href="#options">Compare the three options</a>
         </div>
-        <p class="hero-note">Concept-stage hardware. Pricing isn't posted here &mdash; email
+        <p class="hero-note">Pricing isn't posted here &mdash; email
           us for current details, investment terms, and presale timing. See
           <a href="#honesty" class="link">honesty notes</a> before you reach out.</p>
       </div>
@@ -451,7 +451,9 @@
           <ellipse cx="50" cy="50" rx="46" ry="18" fill="none" stroke="var(--accent)" stroke-width="4.5" transform="rotate(0 50 50)"/>
           <ellipse cx="50" cy="50" rx="46" ry="18" fill="none" stroke="var(--accent-2)" stroke-width="4.5" transform="rotate(60 50 50)"/>
           <ellipse cx="50" cy="50" rx="46" ry="18" fill="none" stroke="var(--accent-red)" stroke-width="4.5" transform="rotate(120 50 50)"/>
-          <circle cx="50" cy="50" r="8" fill="var(--ink)"/>
+          <path d="M50,50 L58,50 A8,8 0 0 1 46,56.93 Z" fill="var(--accent)"/>
+          <path d="M50,50 L46,56.93 A8,8 0 0 1 46,43.07 Z" fill="var(--accent-2)"/>
+          <path d="M50,50 L46,43.07 A8,8 0 0 1 58,50 Z" fill="var(--accent-red)"/>
         </svg>
         <p class="symbol-tagline">Atomic battery power.<br>No charging for over 400 years.</p>
       </div>
@@ -530,12 +532,7 @@
 
   <section id="safety">
     <div class="wrap">
-      <div class="kicker">Containment &amp; safety</div>
-      <h2 class="display">Safe.</h2>
-      <p class="section-desc">This is the safety design this program is built around
-        &mdash; not a finished, certified product yet. Every option &mdash; Type
-        Creation, Eternal Cell, or inside a Mozez Lion Type E &mdash; uses the same
-        sealed, shielded approach to atomic powered material.</p>
+      <h2 class="display" style="color:var(--accent-2);">Safety</h2>
 
       <div class="safety-grid">
         <div class="safety-item">
@@ -666,7 +663,7 @@
 
   <section id="contact">
     <div class="wrap">
-      <div class="kicker">Get in touch</div>
+      <div class="kicker" style="color:var(--accent-red);">Get in touch</div>
       <h2 class="display">Talk to us about pricing, investment, or presale.</h2>
       <p class="section-desc">There's no checkout here &mdash; every conversation
         starts with a real person. Email us directly, or use the form below and
