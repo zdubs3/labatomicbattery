@@ -28,19 +28,19 @@
     --surface-2:#201F26;
     --ink:#C77DFF;
     --muted:#9C93AC;
-    --accent:#E14FD6;
-    --accent-hot:#ED77E0;
+    --accent:#C77DFF;
+    --accent-hot:#D89EFF;
     --accent-2:#22D3EE;
     --accent-red:#FF4D6D;
     --accent-red-hot:#FF7A93;
     --line:#322F3A;
     --shadow: 0 1px 2px rgba(0,0,0,0.5), 0 10px 30px rgba(0,0,0,0.55);
-    --glow-a: rgba(225,79,214,0.22);
-    --glow-b: rgba(34,211,238,0.18);
+    --glow-a: rgba(199,125,255,0.20);
+    --glow-b: rgba(34,211,238,0.20);
     --glow-c: rgba(255,77,109,0.20);
-    --btn-grad: linear-gradient(135deg, #ED77E0, #E14FD6);
+    --btn-grad: linear-gradient(135deg, #D89EFF, #C77DFF);
     --btn-grad-red: linear-gradient(135deg, #FF7A93, #FF4D6D);
-    --btn-shadow: 0 6px 20px rgba(225,79,214,0.35);
+    --btn-shadow: 0 6px 20px rgba(199,125,255,0.35);
     color-scheme: dark;
   }
   *{ box-sizing:border-box; -webkit-tap-highlight-color: transparent; }
@@ -52,10 +52,10 @@
     color: var(--ink);
     background-color: var(--bg);
     background-image:
-      radial-gradient(circle at 8% 6%, var(--glow-a) 0%, transparent 32%),
+      radial-gradient(circle at 8% 6%, var(--glow-b) 0%, transparent 32%),
       radial-gradient(circle at 94% 18%, var(--glow-c) 0%, transparent 30%),
       radial-gradient(circle at 12% 60%, var(--glow-b) 0%, transparent 34%),
-      radial-gradient(circle at 90% 78%, var(--glow-a) 0%, transparent 30%),
+      radial-gradient(circle at 90% 78%, var(--glow-b) 0%, transparent 30%),
       radial-gradient(circle at 15% 98%, var(--glow-c) 0%, transparent 32%);
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -91,7 +91,7 @@
   .topbar{ border-bottom: 1px solid var(--line); padding: 14px 0; position: sticky; top:0; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(8px); z-index: 20; }
   .topbar .wrap{ display:flex; align-items:center; justify-content:space-between; gap: 10px; }
   .brand{ display:flex; align-items:center; gap:8px; min-width:0; }
-  .brand .mark{ font-size: 1.3rem; color: var(--accent); flex:none; text-shadow: 0 0 14px color-mix(in srgb, var(--accent) 45%, transparent); }
+  .brand .mark{ width: 26px; height: 26px; flex:none; overflow:visible; filter: drop-shadow(0 0 6px color-mix(in srgb, var(--accent) 45%, transparent)); }
   .brand-name{ font-size: 0.8rem; letter-spacing: 0.03em; text-transform: uppercase; color: var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
   .brand-name b{ color: var(--ink); font-weight: 600; }
   .nav-links{ display:none; align-items:center; gap: 22px; font-size: 0.85rem; color: var(--muted); }
@@ -103,7 +103,7 @@
   .hero::before{
     content:""; position:absolute; z-index:-1; pointer-events:none;
     top:-220px; right:-160px; width:560px; height:560px; border-radius:50%;
-    background: radial-gradient(circle, var(--glow-a) 0%, transparent 68%);
+    background: radial-gradient(circle, var(--glow-b) 0%, transparent 68%);
   }
   .hero::after{
     content:""; position:absolute; z-index:-1; pointer-events:none;
@@ -201,8 +201,11 @@
     border-top: 1px solid transparent;
     border-image: linear-gradient(90deg, transparent, var(--line) 20%, var(--line) 80%, transparent) 1;
   }
+  /* rotate the primary text color per section so purple, teal, and red are used equally */
+  #safety, #how{ --ink: var(--accent-2); }
+  #honesty, #contact{ --ink: var(--accent-red); }
   .kicker{ font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 8px; }
-  h2{ font-size: clamp(1.4rem, 4vw, 1.9rem); margin: 0 0 10px; font-weight: 500; }
+  h2{ font-size: clamp(1.4rem, 4vw, 1.9rem); margin: 0 0 10px; font-weight: 500; color: var(--ink); }
   .section-desc{ color: var(--muted); font-size: 0.96rem; margin: 0 0 24px; max-width: 62ch; }
 
   /* ---------- option cards (the 3 choices) ---------- */
@@ -270,7 +273,7 @@
     font-family: ui-serif, Georgia, serif; font-size: 1.3rem; color: var(--accent);
     flex: none; width: 1.4em;
   }
-  .flow-step h3{ font-size: 0.95rem; margin: 0 0 4px; }
+  .flow-step h3{ font-size: 0.95rem; margin: 0 0 4px; color: var(--ink); }
   .flow-step p{ font-size: 0.85rem; color: var(--muted); margin: 0; }
 
   /* ---------- safety & containment ---------- */
@@ -285,7 +288,7 @@
     background: color-mix(in srgb, var(--accent-2) 14%, transparent);
     color: var(--accent-2); font-size: 1rem; font-weight:700;
   }
-  .safety-item h3{ font-size: 0.95rem; margin: 0 0 5px; }
+  .safety-item h3{ font-size: 0.95rem; margin: 0 0 5px; color: var(--ink); }
   .safety-item p{ font-size: 0.86rem; color: var(--muted); margin: 0; }
   .standards-strip{
     display:flex; flex-wrap:wrap; gap: 9px; margin-top: 24px;
@@ -309,7 +312,7 @@
     background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
     padding: 15px 16px; margin-bottom: 10px;
   }
-  summary{ cursor: pointer; font-weight: 600; font-size: 0.92rem; list-style: none; display:flex; justify-content:space-between; align-items:center; gap:10px; }
+  summary{ cursor: pointer; font-weight: 600; font-size: 0.92rem; list-style: none; display:flex; justify-content:space-between; align-items:center; gap:10px; color: var(--ink); }
   summary::-webkit-details-marker{ display:none; }
   summary::after{ content: "+"; color: var(--accent); font-size: 1.1rem; flex: none; }
   details[open] summary::after{ content: "\2013"; }
@@ -325,7 +328,7 @@
     overflow:hidden;
   }
   .founder-avatar img{ width:100%; height:100%; object-fit:cover; }
-  .founder-name{ font-family: ui-serif, Georgia, serif; font-size: 1.05rem; font-weight:600; }
+  .founder-name{ font-family: ui-serif, Georgia, serif; font-size: 1.05rem; font-weight:600; color: var(--ink); }
   .founder-title{ font-size: 0.78rem; color: var(--muted); text-transform:uppercase; letter-spacing: 0.06em; margin-top: 2px; }
   .email-row{ display:flex; flex-direction:column; gap: 10px; margin-bottom: 26px; max-width: 420px; }
   .email-btn{
@@ -405,8 +408,15 @@
   <div class="topbar">
     <div class="wrap">
       <div class="brand">
-        <span class="mark">&#9883;</span>
-        <span class="brand-name">Wohl Engine Co. &mdash; <b>Atomic Battery</b></span>
+        <svg class="mark" viewBox="0 0 100 100" aria-hidden="true">
+          <ellipse cx="50" cy="50" rx="46" ry="18" fill="none" stroke="var(--accent)" stroke-width="7" transform="rotate(0 50 50)"/>
+          <ellipse cx="50" cy="50" rx="46" ry="18" fill="none" stroke="var(--accent-2)" stroke-width="7" transform="rotate(60 50 50)"/>
+          <ellipse cx="50" cy="50" rx="46" ry="18" fill="none" stroke="var(--accent-red)" stroke-width="7" transform="rotate(120 50 50)"/>
+          <path d="M50,50 L58,50 A8,8 0 0 1 46,56.93 Z" fill="var(--accent)"/>
+          <path d="M50,50 L46,56.93 A8,8 0 0 1 46,43.07 Z" fill="var(--accent-2)"/>
+          <path d="M50,50 L46,43.07 A8,8 0 0 1 58,50 Z" fill="var(--accent-red)"/>
+        </svg>
+        <span class="brand-name"><b>Atomic Battery</b></span>
       </div>
       <nav class="nav-links">
         <a href="#options">Options</a>
