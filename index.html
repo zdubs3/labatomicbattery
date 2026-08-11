@@ -248,8 +248,11 @@
     font-size: 0.62rem; letter-spacing: 0.06em; text-transform: uppercase;
     background: var(--btn-grad-red); color: var(--accent-2); padding: 4px 8px; border-radius: 3px; white-space: nowrap;
   }
-  .opt-tag.outline{ background:none; border:1px solid var(--line); color: var(--muted); }
-  .opt-tag.outline:hover{ border-color: var(--accent-2); color: var(--accent-2); }
+  .opt-tag.outline{
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    border: none; color: var(--accent-red);
+  }
+  .opt-tag.outline:hover{ filter: brightness(1.1); }
   .opt-sub{ font-size: 0.85rem; color: var(--muted); margin-bottom: 14px; }
   .opt-specs{ display:flex; flex-direction:column; gap: 8px; font-size: 0.9rem; border-top: 1px solid var(--line); padding-top: 12px; margin-bottom: 14px; }
   .opt-spec-row{ display:flex; justify-content: space-between; gap: 10px; color: var(--muted); }
@@ -453,8 +456,6 @@
           <a class="btn" href="#contact">Contact us &rarr;</a>
           <a class="btn btn-ghost" href="#options">Compare the three options</a>
         </div>
-        <p class="hero-note">Pricing isn't posted here &mdash; email
-          us for current details, investment terms, and presale timing.</p>
       </div>
 
       <div class="chart-card fade-up d2 symbol-card">
