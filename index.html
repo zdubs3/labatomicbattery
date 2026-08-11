@@ -31,11 +31,15 @@
     --accent:#9C2B58;
     --accent-hot:#B83D6E;
     --accent-2:#0E7A72;
+    --accent-red:#C23B3B;
+    --accent-red-hot:#D6584F;
     --line:#DDD4C2;
     --shadow: 0 1px 2px rgba(27,23,18,0.05), 0 8px 24px rgba(27,23,18,0.05);
     --glow-a: rgba(156,43,88,0.16);
-    --glow-b: rgba(14,122,114,0.12);
+    --glow-b: rgba(14,122,114,0.14);
+    --glow-c: rgba(194,59,59,0.14);
     --btn-grad: linear-gradient(135deg, #B83D6E, #9C2B58);
+    --btn-grad-red: linear-gradient(135deg, #D6584F, #C23B3B);
     --btn-shadow: 0 6px 18px rgba(156,43,88,0.28);
     color-scheme: light;
   }
@@ -43,10 +47,13 @@
     :root{
       --bg:#15120D; --surface:#1C1811; --surface-2:#211C14; --ink:#F2ECDD;
       --muted:#A79C89; --accent:#E0679E; --accent-hot:#EF85B4; --accent-2:#4FD1C5; --line:#332C20;
+      --accent-red:#E2685F; --accent-red-hot:#EF8981;
       --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
       --glow-a: rgba(224,103,158,0.28);
-      --glow-b: rgba(79,209,197,0.16);
+      --glow-b: rgba(79,209,197,0.22);
+      --glow-c: rgba(226,104,95,0.24);
       --btn-grad: linear-gradient(135deg, #EF85B4, #E0679E);
+      --btn-grad-red: linear-gradient(135deg, #EF8981, #E2685F);
       --btn-shadow: 0 6px 22px rgba(224,103,158,0.4);
       color-scheme: dark;
     }
@@ -58,7 +65,15 @@
   .page{
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica Neue, Arial, sans-serif;
     color: var(--ink);
-    background: var(--bg);
+    background-color: var(--bg);
+    background-image:
+      radial-gradient(circle at 8% 6%, var(--glow-a) 0%, transparent 32%),
+      radial-gradient(circle at 94% 18%, var(--glow-c) 0%, transparent 30%),
+      radial-gradient(circle at 12% 60%, var(--glow-b) 0%, transparent 34%),
+      radial-gradient(circle at 90% 78%, var(--glow-a) 0%, transparent 30%),
+      radial-gradient(circle at 15% 98%, var(--glow-c) 0%, transparent 32%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
     line-height: 1.5;
     padding-bottom: 84px; /* room for sticky CTA on mobile */
   }
@@ -214,19 +229,24 @@
   }
   .opt-card:hover{ transform: translateY(-2px); box-shadow: var(--shadow); }
   .opt-card.flagship{
-    border-color: var(--accent);
-    box-shadow: 0 0 0 1px var(--accent), 0 10px 34px color-mix(in srgb, var(--accent) 16%, transparent);
+    border-color: var(--accent-red);
+    box-shadow: 0 0 0 1px var(--accent-red), 0 10px 34px color-mix(in srgb, var(--accent-red) 16%, transparent);
   }
   .opt-card.flagship:hover{
-    box-shadow: 0 0 0 1px var(--accent), 0 16px 40px color-mix(in srgb, var(--accent) 24%, transparent);
+    box-shadow: 0 0 0 1px var(--accent-red), 0 16px 40px color-mix(in srgb, var(--accent-red) 24%, transparent);
   }
+  .opt-card.flagship .opt-select-btn{
+    border-color: var(--accent-red); color: var(--accent-red);
+  }
+  .opt-card.flagship .opt-select-btn:hover{ background: var(--accent-red); color: #FFF7EC; }
   .opt-top{ display:flex; align-items:flex-start; justify-content: space-between; gap: 10px; margin-bottom: 4px; }
   .opt-name{ font-family: ui-serif, Georgia, serif; font-size: 1.3rem; }
   .opt-tag{
     font-size: 0.62rem; letter-spacing: 0.06em; text-transform: uppercase;
-    background: var(--btn-grad); color: #FFF7EC; padding: 4px 8px; border-radius: 3px; white-space: nowrap;
+    background: var(--btn-grad-red); color: #FFF7EC; padding: 4px 8px; border-radius: 3px; white-space: nowrap;
   }
   .opt-tag.outline{ background:none; border:1px solid var(--line); color: var(--muted); }
+  .opt-tag.outline:hover{ border-color: var(--accent-2); color: var(--accent-2); }
   .opt-sub{ font-size: 0.85rem; color: var(--muted); margin-bottom: 14px; }
   .opt-specs{ display:flex; flex-direction:column; gap: 8px; font-size: 0.9rem; border-top: 1px solid var(--line); padding-top: 12px; margin-bottom: 14px; }
   .opt-spec-row{ display:flex; justify-content: space-between; gap: 10px; color: var(--muted); }
@@ -424,7 +444,6 @@
     </svg>
     <div class="wrap hero-grid">
       <div class="fade-up">
-        <div class="eyebrow">Presale &amp; investment inquiries open</div>
         <h1 class="display">A battery core that outlives <em>everything</em> around it.</h1>
         <p class="lede">THE ETERNAL CELL. ATOMIC POWER BATTERY OVER 400 YEAR LIFE.
           POWERING CELL PHONES, CARS, HOMES, BUILDINGS, CITIES, AND THE WORLD!</p>
@@ -446,13 +465,7 @@
 
   <section id="options">
     <div class="wrap">
-      <div class="kicker">Choose your core</div>
-      <h2 class="display">Three products, one physics platform.</h2>
-      <p class="section-desc">All three run on the same atomic powered material. What
-        changes is how much power you get right now versus how long it lasts &mdash;
-        anywhere from about 29 years to over 400 years &mdash; and whether a backup
-        boost rides along for bursts. Pricing depends on the option and volume
-        &mdash; email us for current numbers.</p>
+      <h2 class="display">Choose your battery.</h2>
 
       <div class="opt-grid">
         <div class="opt-card">
@@ -469,7 +482,7 @@
           <div class="opt-benefit">No charger, no moving parts &mdash;
             just steady power from atomic powered material, every second, for decades.</div>
           <div class="opt-cta-row">
-            <button class="opt-select-btn" data-tier="Mozez Lion Type Creation">Ask about Type C &rarr;</button>
+            <button class="opt-select-btn" data-tier="Type C">Ask about Type C &rarr;</button>
           </div>
         </div>
 
@@ -512,7 +525,7 @@
 
       <div class="honesty-box" style="margin-top:28px;">
         <p style="margin:0; color:var(--muted); font-size:0.9rem;"><b style="color:var(--ink);">Which one is right for you?</b> Want
-          steady power right now &mdash; pick <b style="color:var(--ink);">Type Creation</b>. Want
+          steady power right now &mdash; pick <b style="color:var(--ink);">Type C</b>. Want
           power that essentially never runs out &mdash; pick <b style="color:var(--ink);">Eternal Cell</b>.
           Want both a never-dies base load and a burst of extra power on demand &mdash;
           pick <b style="color:var(--ink);">Mozez Lion Type E</b>. Pricing is on request &mdash; email us.</p>
@@ -593,7 +606,7 @@
         </div>
         <div class="flow-step">
           <span class="num mono">3</span>
-          <div><h3>Deliver (or boost)</h3><p>Type Creation and Eternal Cell units deliver
+          <div><h3>Deliver (or boost)</h3><p>Type C and Eternal Cell units deliver
             that current directly. Mozez Lion Type E units also keep a reserve charged
             and ready, for fast bursts of extra power when you need them.</p></div>
         </div>
@@ -636,8 +649,8 @@
 
         <details>
           <summary>What's the difference between the three, really?</summary>
-          <p>Type Creation and Eternal Cell use the same atomic powered material in
-            different amounts &mdash; Type Creation trades lifespan for more power
+          <p>Type C and Eternal Cell use the same atomic powered material in
+            different amounts &mdash; Type C trades lifespan for more power
             right now, Eternal Cell trades power for an extraordinary lifespan.
             Mozez Lion Type E takes either core and adds a boost, so it can also
             answer short bursts of much higher power than the core alone could
@@ -692,7 +705,7 @@
         <div>
           <label for="r-tier">I'm interested in</label>
           <select id="r-tier">
-            <option value="Mozez Lion Type Creation">Mozez Lion Type Creation</option>
+            <option value="Type C">Type C</option>
             <option value="Eternal Cell">Eternal Cell</option>
             <option value="Mozez Lion Type E" selected>Mozez Lion Type E</option>
             <option value="Investment / general inquiry">Investment / general inquiry</option>
