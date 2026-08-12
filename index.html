@@ -440,7 +440,7 @@
           <path d="M50,50 L46,56.93 A8,8 0 0 1 46,43.07 Z" fill="var(--accent-2)"/>
           <path d="M50,50 L46,43.07 A8,8 0 0 1 58,50 Z" fill="var(--accent-red)"/>
         </svg>
-        <span class="brand-name"><span class="lab-sq"></span><b>LAB</b></span>
+        <span class="brand-name"><span class="lab-sq"></span><b><span style="color:var(--accent-red);">L</span><span style="color:var(--accent-2);">A</span><span style="color:var(--accent);">B</span></b></span>
       </div>
     </div>
   </div>
@@ -495,7 +495,7 @@
           <div class="opt-specs">
             <div class="opt-spec-row"><span>Life</span><b>&asymp;432 years</b></div>
           </div>
-          <div class="opt-benefit">Trades power for time &mdash; this core will still
+          <div class="opt-benefit">This core will still
             be delivering current when today's electronics are museum pieces.</div>
           <div class="opt-cta-row">
             <button class="opt-select-btn teal-btn" data-tier="Lion">Ask about Lion &rarr;</button>
@@ -696,8 +696,10 @@
           <textarea id="r-message" placeholder="Anything specific you'd like to know?"></textarea>
         </div>
         <div class="full">
-          <button class="btn" type="submit" style="width:100%; justify-content:center;">Send inquiry</button>
-          <p class="form-msg" id="form-msg">We'll reply with current pricing and next steps.</p>
+          <div style="display:flex; justify-content:flex-end;">
+            <button class="btn" type="submit" style="width:66%; justify-content:center;">Send inquiry</button>
+          </div>
+          <p class="form-msg" id="form-msg"></p>
         </div>
       </form>
     </div>
