@@ -1,4 +1,4 @@
-const CACHE_NAME = "mozez-atomic-battery-v1";
+const CACHE_NAME = "mozez-atomic-battery-v2";
 const PRECACHE_URLS = [
   "./",
   "./index.html",
@@ -27,33 +27,21 @@ self.addEventListener("activate", (event) => {
   self.clients.claim();
 });
 
-// Network-first for navigations (so live updates show up when online),
-// falling back to cache when offline. Cache-first for static assets.
+// Network-first for everything (so live updates show up immediately when
+// online), falling back to cache only when offline.
 self.addEventListener("fetch", (event) => {
   const req = event.request;
   if (req.method !== "GET") return;
 
-  if (req.mode === "navigate") {
-    event.respondWith(
-      fetch(req)
-        .then((res) => {
-          const copy = res.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put("./index.html", copy));
-          return res;
-        })
-        .catch(() => caches.match("./index.html"))
-    );
-    return;
-  }
+  const cacheKey = req.mode === "navigate" ? "./index.html" : req;
 
   event.respondWith(
-    caches.match(req).then((cached) => {
-      if (cached) return cached;
-      return fetch(req).then((res) => {
+    fetch(req)
+      .then((res) => {
         const copy = res.clone();
-        caches.open(CACHE_NAME).then((cache) => cache.put(req, copy));
+        caches.open(CACHE_NAME).then((cache) => cache.put(cacheKey, copy));
         return res;
-      });
-    })
+      })
+      .catch(() => caches.match(cacheKey))
   );
 });
