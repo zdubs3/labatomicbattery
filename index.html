@@ -727,12 +727,14 @@
             <option value="Lion">Lion</option>
             <option value="Type E" selected>Type E (Lion Type E or Cub Type E)</option>
             <option value="Investment / general inquiry">Investment / general inquiry</option>
+            <option value="Careers">Careers</option>
           </select>
         </div>
         <div>
           <label for="r-message">Message (optional)</label>
           <textarea id="r-message" placeholder="Anything specific you'd like to know?"></textarea>
         </div>
+        <p id="careers-note" class="form-msg" style="display:none; text-align:left;">Interested in joining us? Express your talent and/or experience above.</p>
         <div class="full">
           <div style="display:flex; justify-content:flex-end;">
             <button class="btn" type="submit" style="width:66%; justify-content:center;">Send inquiry</button>
@@ -809,6 +811,19 @@
       msg.textContent = 'Opening your email app to send the inquiry...';
       msg.classList.add('ok');
     });
+
+    var tierSelectEl = document.getElementById('r-tier');
+    var careersNote = document.getElementById('careers-note');
+    var messageField = document.getElementById('r-message');
+    function syncCareersUI(){
+      var isCareers = tierSelectEl.options[tierSelectEl.selectedIndex].value === 'Careers';
+      careersNote.style.display = isCareers ? 'block' : 'none';
+      messageField.placeholder = isCareers
+        ? 'Tell us about yourself — express your talent and/or experience.'
+        : "Anything specific you'd like to know?";
+    }
+    tierSelectEl.addEventListener('change', syncCareersUI);
+    syncCareersUI();
 
     document.querySelectorAll('.opt-select-btn').forEach(function(btn){
       btn.addEventListener('click', function(){
