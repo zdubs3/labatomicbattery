@@ -476,6 +476,10 @@
 </style>
 
 <div class="page">
+  <audio id="bg-audio" src="bg_432hz.mp3" loop preload="none"></audio>
+  <button id="audio-toggle" type="button" aria-pressed="false" style="position:fixed; bottom:18px; right:18px; z-index:30; display:flex; align-items:center; gap:8px; padding:10px 14px; border-radius:999px; border:1px solid var(--accent); background:color-mix(in srgb, var(--bg) 80%, transparent); backdrop-filter:blur(8px); color:var(--accent); font-family:inherit; font-size:0.95rem; cursor:pointer; box-shadow:0 0 16px color-mix(in srgb, var(--accent) 35%, transparent);">
+    <span id="audio-icon">&#9835;</span><span id="audio-label">432Hz</span>
+  </button>
   <div class="film-orbit" aria-hidden="true">
     <div class="film-strip">
       <div class="film-sprockets"></div>
@@ -907,6 +911,24 @@
     }
     tierSelectEl.addEventListener('change', syncCareersUI);
     syncCareersUI();
+
+    var bgAudio = document.getElementById('bg-audio');
+    var audioToggle = document.getElementById('audio-toggle');
+    var audioIcon = document.getElementById('audio-icon');
+    var audioLabel = document.getElementById('audio-label');
+    audioToggle.addEventListener('click', function(){
+      if(bgAudio.paused){
+        bgAudio.play();
+        audioIcon.textContent = '⏸';
+        audioLabel.textContent = 'Playing';
+        audioToggle.setAttribute('aria-pressed', 'true');
+      } else {
+        bgAudio.pause();
+        audioIcon.textContent = '♫';
+        audioLabel.textContent = '432Hz';
+        audioToggle.setAttribute('aria-pressed', 'false');
+      }
+    });
 
     document.querySelectorAll('.opt-select-btn').forEach(function(btn){
       btn.addEventListener('click', function(){
