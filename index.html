@@ -442,12 +442,17 @@
     <div class="wrap">
       <div class="brand">
         <svg class="mark" viewBox="0 0 100 100" aria-hidden="true">
+          <defs>
+            <linearGradient id="yudGradNav" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="var(--accent)"/>
+              <stop offset="50%" stop-color="var(--accent-2)"/>
+              <stop offset="100%" stop-color="var(--accent-red)"/>
+            </linearGradient>
+          </defs>
           <ellipse cx="50" cy="50" rx="46" ry="18" fill="none" stroke="var(--accent)" stroke-width="7" transform="rotate(0 50 50)"/>
           <ellipse cx="50" cy="50" rx="46" ry="18" fill="none" stroke="var(--accent-2)" stroke-width="7" transform="rotate(60 50 50)"/>
           <ellipse cx="50" cy="50" rx="46" ry="18" fill="none" stroke="var(--accent-red)" stroke-width="7" transform="rotate(120 50 50)"/>
-          <path transform="translate(50,50) rotate(0)" d="M0,1 C2.2,-2 4.6,-5.5 4.6,-7.8 A4.6,4.6 0 1,1 -4.6,-7.8 C-4.6,-5.5 -2.2,-2 0,1 Z" fill="var(--accent)"/>
-          <path transform="translate(50,50) rotate(120)" d="M0,1 C2.2,-2 4.6,-5.5 4.6,-7.8 A4.6,4.6 0 1,1 -4.6,-7.8 C-4.6,-5.5 -2.2,-2 0,1 Z" fill="var(--accent-2)"/>
-          <path transform="translate(50,50) rotate(240)" d="M0,1 C2.2,-2 4.6,-5.5 4.6,-7.8 A4.6,4.6 0 1,1 -4.6,-7.8 C-4.6,-5.5 -2.2,-2 0,1 Z" fill="var(--accent-red)"/>
+          <path transform="translate(50,50) scale(0.9)" d="M0,-7 C2.5,-7 4,-5.5 3.5,-3.8 C3.2,-2.6 1.5,-2 0.3,-1.2 C2.5,-0.8 3.5,1.2 2,2.8 C0.8,4 -0.5,3.8 -1.2,2.5 C-1.8,3.8 -1.2,5.5 0.5,6.8 C0.2,7.2 -0.8,7 -1.3,6.2 C-3,4 -3.5,1.5 -2,-0.5 C-3.5,-1.5 -4,-4 -2,-5.8 C-1,-6.8 0,-7.2 0,-7 Z" fill="url(#yudGradNav)"/>
         </svg>
         <span class="brand-name"><span class="lab-sq"></span><b><span style="color:var(--accent-red);">L</span><span style="color:var(--accent-2);">A</span><span style="color:var(--accent);">B</span></b></span>
       </div>
@@ -458,6 +463,13 @@
     <div class="wrap hero-grid">
       <div class="chart-card fade-up d2 symbol-card">
         <svg class="symbol-mark" viewBox="0 0 160 160" aria-hidden="true">
+          <defs>
+            <linearGradient id="yudGradHero" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="var(--accent)"/>
+              <stop offset="50%" stop-color="var(--accent-2)"/>
+              <stop offset="100%" stop-color="var(--accent-red)"/>
+            </linearGradient>
+          </defs>
           <circle cx="80" cy="80" r="74" fill="none" stroke="var(--accent)" stroke-width="1" opacity="0.22"/>
           <circle cx="80" cy="80" r="64" fill="none" stroke="var(--accent-2)" stroke-width="1" opacity="0.22"/>
           <circle cx="80" cy="80" r="54" fill="none" stroke="var(--accent-red)" stroke-width="1" opacity="0.22"/>
@@ -466,9 +478,7 @@
           <ellipse cx="80" cy="80" rx="24" ry="9.5" fill="none" stroke="var(--accent)" stroke-width="3.2" transform="rotate(0 80 80)"/>
           <ellipse cx="80" cy="80" rx="24" ry="9.5" fill="none" stroke="var(--accent-2)" stroke-width="3.2" transform="rotate(60 80 80)"/>
           <ellipse cx="80" cy="80" rx="24" ry="9.5" fill="none" stroke="var(--accent-red)" stroke-width="3.2" transform="rotate(120 80 80)"/>
-          <path transform="translate(80,80) rotate(0)" d="M0,0.5 C1.1,-1 2.3,-2.75 2.3,-3.9 A2.3,2.3 0 1,1 -2.3,-3.9 C-2.3,-2.75 -1.1,-1 0,0.5 Z" fill="var(--accent)"/>
-          <path transform="translate(80,80) rotate(120)" d="M0,0.5 C1.1,-1 2.3,-2.75 2.3,-3.9 A2.3,2.3 0 1,1 -2.3,-3.9 C-2.3,-2.75 -1.1,-1 0,0.5 Z" fill="var(--accent-2)"/>
-          <path transform="translate(80,80) rotate(240)" d="M0,0.5 C1.1,-1 2.3,-2.75 2.3,-3.9 A2.3,2.3 0 1,1 -2.3,-3.9 C-2.3,-2.75 -1.1,-1 0,0.5 Z" fill="var(--accent-red)"/>
+          <path transform="translate(80,80) scale(0.47)" d="M0,-7 C2.5,-7 4,-5.5 3.5,-3.8 C3.2,-2.6 1.5,-2 0.3,-1.2 C2.5,-0.8 3.5,1.2 2,2.8 C0.8,4 -0.5,3.8 -1.2,2.5 C-1.8,3.8 -1.2,5.5 0.5,6.8 C0.2,7.2 -0.8,7 -1.3,6.2 C-3,4 -3.5,1.5 -2,-0.5 C-3.5,-1.5 -4,-4 -2,-5.8 C-1,-6.8 0,-7.2 0,-7 Z" fill="url(#yudGradHero)"/>
         </svg>
         <p class="symbol-tagline"><span style="color:var(--accent);">Atomic battery</span><br><span style="color:var(--accent);">charging not applicable</span><br><span style="color:var(--accent-2);">No charging</span> <span style="color:var(--accent-red);">for over 400 years.</span></p>
       </div>
@@ -751,12 +761,17 @@
 
       <div style="display:flex; flex-direction:column; align-items:center; margin-top:56px;">
         <svg class="symbol-mark" viewBox="0 0 100 100" aria-hidden="true" style="width:96px; height:96px;">
+          <defs>
+            <linearGradient id="yudGradFooter" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="var(--accent)"/>
+              <stop offset="50%" stop-color="var(--accent-2)"/>
+              <stop offset="100%" stop-color="var(--accent-red)"/>
+            </linearGradient>
+          </defs>
           <ellipse cx="50" cy="50" rx="46" ry="18" fill="none" stroke="var(--accent)" stroke-width="6" transform="rotate(0 50 50)"/>
           <ellipse cx="50" cy="50" rx="46" ry="18" fill="none" stroke="var(--accent-2)" stroke-width="6" transform="rotate(60 50 50)"/>
           <ellipse cx="50" cy="50" rx="46" ry="18" fill="none" stroke="var(--accent-red)" stroke-width="6" transform="rotate(120 50 50)"/>
-          <path transform="translate(50,50) rotate(0)" d="M0,1 C2.2,-2 4.6,-5.5 4.6,-7.8 A4.6,4.6 0 1,1 -4.6,-7.8 C-4.6,-5.5 -2.2,-2 0,1 Z" fill="var(--accent)"/>
-          <path transform="translate(50,50) rotate(120)" d="M0,1 C2.2,-2 4.6,-5.5 4.6,-7.8 A4.6,4.6 0 1,1 -4.6,-7.8 C-4.6,-5.5 -2.2,-2 0,1 Z" fill="var(--accent-2)"/>
-          <path transform="translate(50,50) rotate(240)" d="M0,1 C2.2,-2 4.6,-5.5 4.6,-7.8 A4.6,4.6 0 1,1 -4.6,-7.8 C-4.6,-5.5 -2.2,-2 0,1 Z" fill="var(--accent-red)"/>
+          <path transform="translate(50,50) scale(0.9)" d="M0,-7 C2.5,-7 4,-5.5 3.5,-3.8 C3.2,-2.6 1.5,-2 0.3,-1.2 C2.5,-0.8 3.5,1.2 2,2.8 C0.8,4 -0.5,3.8 -1.2,2.5 C-1.8,3.8 -1.2,5.5 0.5,6.8 C0.2,7.2 -0.8,7 -1.3,6.2 C-3,4 -3.5,1.5 -2,-0.5 C-3.5,-1.5 -4,-4 -2,-5.8 C-1,-6.8 0,-7.2 0,-7 Z" fill="url(#yudGradFooter)"/>
         </svg>
         <span class="brand-name" style="margin-top:8px; font-size:1rem;"><span class="lab-sq"></span><b><span style="color:var(--accent-red);">L</span><span style="color:var(--accent-2);">A</span><span style="color:var(--accent);">B</span></b></span>
         <div style="display:flex; gap:16px; margin-top:18px;">
