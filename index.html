@@ -436,60 +436,9 @@
     section{ padding: 64px 0; }
   }
 
-  /* ---------- orbiting background tour film ---------- */
-  .film-orbit{
-    position: fixed; top: 50%; left: 50%; width: 150px; z-index: -1;
-    pointer-events: none; transform: translate(-50%,-50%);
-    animation: filmOrbitPath 16s linear infinite;
-  }
-  .film-strip{
-    background: #050505; border-radius: 4px; padding: 10px 0;
-    box-shadow: 0 0 30px color-mix(in srgb, var(--accent) 35%, transparent);
-    opacity: 0.85;
-  }
-  .film-sprockets{
-    height: 9px;
-    background-image: radial-gradient(circle, #eee 42%, transparent 43%);
-    background-size: 13px 9px;
-    background-repeat: repeat-x;
-    background-position: 4px center;
-    margin: 0 4px;
-  }
-  .film-strip video{
-    display:block; width: calc(100% - 12px); margin: 6px auto 0;
-    border-radius: 2px;
-  }
-  @keyframes filmOrbitPath{
-    0%   { margin-left: 42vw;  margin-top: 0; }
-    12.5%{ margin-left: 29.7vw; margin-top: -24.7vh; }
-    25%  { margin-left: 0;     margin-top: -35vh; }
-    37.5%{ margin-left: -29.7vw; margin-top: -24.7vh; }
-    50%  { margin-left: -42vw; margin-top: 0; }
-    62.5%{ margin-left: -29.7vw; margin-top: 24.7vh; }
-    75%  { margin-left: 0;     margin-top: 35vh; }
-    87.5%{ margin-left: 29.7vw; margin-top: 24.7vh; }
-    100% { margin-left: 42vw;  margin-top: 0; }
-  }
-  @media (prefers-reduced-motion: reduce){
-    .film-orbit{ animation: none; }
-  }
 </style>
 
 <div class="page">
-  <audio id="bg-audio" src="bg_432hz.mp3" loop preload="none"></audio>
-  <button id="audio-toggle" type="button" aria-pressed="false" style="position:fixed; bottom:18px; right:18px; z-index:30; display:flex; align-items:center; gap:8px; padding:10px 14px; border-radius:999px; border:1px solid var(--accent); background:color-mix(in srgb, var(--bg) 80%, transparent); backdrop-filter:blur(8px); color:var(--accent); font-family:inherit; font-size:0.95rem; cursor:pointer; box-shadow:0 0 16px color-mix(in srgb, var(--accent) 35%, transparent);">
-    <span id="audio-icon">&#9835;</span><span id="audio-label">432Hz</span>
-  </button>
-  <div class="film-orbit" aria-hidden="true">
-    <div class="film-strip">
-      <div class="film-sprockets"></div>
-      <video autoplay muted loop playsinline>
-        <source src="tour.mp4" type="video/mp4">
-      </video>
-      <div class="film-sprockets"></div>
-    </div>
-  </div>
-
   <div class="topbar">
     <div class="wrap">
       <div class="brand">
@@ -509,16 +458,6 @@
         <span class="brand-name"><span class="lab-sq"></span><b><span style="color:var(--accent-red);">L</span><span style="color:var(--accent-2);">A</span><span style="color:var(--accent);">B</span></b></span>
       </div>
     </div>
-  </div>
-
-  <div class="wrap" style="display:flex; justify-content:center; padding-top:24px;">
-    <img src="priest.jpg" alt="The High Priest" style="max-width:220px; width:100%; border-radius:10px; border:1px solid var(--accent); box-shadow:0 0 30px color-mix(in srgb, var(--accent) 30%, transparent);">
-  </div>
-
-  <div class="wrap" style="display:flex; justify-content:center; padding-top:24px; position:relative; z-index:1;">
-    <video controls playsinline style="max-width:280px; width:100%; border-radius:10px; border:1px solid var(--accent-2); box-shadow:0 0 30px color-mix(in srgb, var(--accent-2) 30%, transparent);">
-      <source src="tour.mp4" type="video/mp4">
-    </video>
   </div>
 
   <div class="hero">
@@ -950,24 +889,6 @@
     }
     tierSelectEl.addEventListener('change', syncCareersUI);
     syncCareersUI();
-
-    var bgAudio = document.getElementById('bg-audio');
-    var audioToggle = document.getElementById('audio-toggle');
-    var audioIcon = document.getElementById('audio-icon');
-    var audioLabel = document.getElementById('audio-label');
-    audioToggle.addEventListener('click', function(){
-      if(bgAudio.paused){
-        bgAudio.play();
-        audioIcon.textContent = '⏸';
-        audioLabel.textContent = 'Playing';
-        audioToggle.setAttribute('aria-pressed', 'true');
-      } else {
-        bgAudio.pause();
-        audioIcon.textContent = '♫';
-        audioLabel.textContent = '432Hz';
-        audioToggle.setAttribute('aria-pressed', 'false');
-      }
-    });
 
     document.querySelectorAll('.opt-select-btn').forEach(function(btn){
       btn.addEventListener('click', function(){
