@@ -929,17 +929,19 @@
       msg.textContent = 'Sending...';
       msg.classList.remove('ok');
 
+      var fd = new FormData();
+      fd.append('Name', name);
+      fd.append('Email', email);
+      fd.append('Interested in', tier);
+      fd.append('Message', message || '(none)');
+      fd.append('_subject', 'New website inquiry');
+      fd.append('_template', 'table');
+      fd.append('_captcha', 'false');
+
       fetch('https://formsubmit.co/ajax/' + ownerEmail(), {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({
-          Name: name,
-          Email: email,
-          'Interested in': tier,
-          Message: message || '(none)',
-          _subject: 'New website inquiry',
-          _template: 'table'
-        })
+        headers: { 'Accept': 'application/json' },
+        body: fd
       }).then(function(res){ return res.json(); }).then(function(){
         msg.textContent = 'Message received — looking forward to being in touch!';
         msg.classList.add('ok');
