@@ -803,9 +803,6 @@
         </div>
       </div>
 
-      <div style="margin-top:28px;">
-        <a class="btn" id="membership-btn" href="#contact">Ask about membership &rarr;</a>
-      </div>
     </div>
   </section>
 
@@ -814,8 +811,8 @@
       <div class="kicker" style="color:var(--accent-red);">Get in touch</div>
       <h2 class="display"><span style="color:var(--accent-red);">Contact us</span> <span style="color:var(--accent);">for more</span> <span style="color:var(--accent-2);">information.</span></h2>
       <p class="section-desc">There's no checkout here &mdash; every conversation
-        starts with a real person. Email us directly, or use the form below and
-        we'll reply with current details.</p>
+        starts with a real person. Email us directly and we'll reply with
+        current details.</p>
 
       <div class="founder-card">
         <div style="display:flex; gap:10px;">
@@ -826,40 +823,9 @@
       </div>
 
       <div class="email-row">
+        <a class="email-btn" href="mailto:wohlmoshe3@gmail.com">wohlmoshe3@gmail.com <span class="arrow">&rarr;</span></a>
         <a class="email-btn" href="https://www.instagram.com/Atomic_Battery_" target="_blank" rel="noopener">@Atomic_Battery_ <span class="arrow">&rarr;</span></a>
       </div>
-      <div class="or-divider">or send an inquiry</div>
-
-      <form class="contact-card" id="contact-form">
-        <div>
-          <label for="r-name">Name</label>
-          <input id="r-name" type="text" placeholder="Your name" required>
-        </div>
-        <div>
-          <label for="r-email">Email</label>
-          <input id="r-email" type="email" placeholder="you@email.com" required>
-        </div>
-        <div>
-          <label for="r-tier">I'm interested in</label>
-          <select id="r-tier">
-            <option value="Cub">Cub</option>
-            <option value="Lion">Lion</option>
-            <option value="Type E" selected>Type E (Lion Type E or Cub Type E)</option>
-            <option value="General inquiry">General inquiry</option>
-            <option value="LAB Atomic Club membership">LAB Atomic Club membership</option>
-          </select>
-        </div>
-        <div>
-          <label for="r-message">Message (optional)</label>
-          <textarea id="r-message" placeholder="Anything specific you'd like to know?"></textarea>
-        </div>
-        <div class="full">
-          <div style="display:flex; justify-content:flex-end;">
-            <button class="btn" type="submit" style="width:66%; justify-content:center;">Send inquiry</button>
-          </div>
-          <p class="form-msg" id="form-msg"></p>
-        </div>
-      </form>
 
       <div style="display:flex; flex-direction:column; align-items:center; margin-top:56px;">
         <svg class="symbol-mark" viewBox="0 0 100 100" aria-hidden="true" style="width:96px; height:96px;">
@@ -903,40 +869,6 @@
 
 <script>
   (function(){
-    // Address is stored as char codes rather than plain text so it doesn't
-    // appear as scrapeable plaintext in the page source.
-    var _addr = [119,111,104,108,109,111,115,104,101,51,64,103,109,97,105,108,46,99,111,109];
-    function ownerEmail(){ return String.fromCharCode.apply(null, _addr); }
-
-    var form = document.getElementById('contact-form');
-    var msg = document.getElementById('form-msg');
-
-    form.addEventListener('submit', function(e){
-      e.preventDefault();
-      var name = document.getElementById('r-name').value.trim();
-      var email = document.getElementById('r-email').value.trim();
-      var tierSelect = document.getElementById('r-tier');
-      var tier = tierSelect.options[tierSelect.selectedIndex].value;
-      var message = document.getElementById('r-message').value.trim();
-
-      if(!name || !email){
-        msg.textContent = 'Please add your name and email first.';
-        msg.classList.remove('ok');
-        return;
-      }
-
-      var subject = 'New website inquiry — ' + tier;
-      var body = 'Name: ' + name + '\nEmail: ' + email + '\nInterested in: ' + tier +
-        (message ? '\nMessage: ' + message : '') +
-        '\n\n(Sent from the LAB website — no charge, no order placed.)';
-      var mailto = 'mailto:' + ownerEmail() + '?subject=' + encodeURIComponent(subject) +
-        '&body=' + encodeURIComponent(body);
-      window.location.href = mailto;
-
-      msg.textContent = 'Opening your email app to send the inquiry...';
-      msg.classList.add('ok');
-    });
-
     var filmFrame = document.getElementById('film-frame');
     if(filmFrame){
       var filmSlides = filmFrame.children;
@@ -950,26 +882,9 @@
 
     document.querySelectorAll('.opt-select-btn').forEach(function(btn){
       btn.addEventListener('click', function(){
-        var tier = this.getAttribute('data-tier');
-        var target = document.getElementById('r-tier');
-        for(var i=0; i<target.options.length; i++){
-          if(target.options[i].value === tier){ target.selectedIndex = i; break; }
-        }
         document.getElementById('contact').scrollIntoView({behavior: 'smooth'});
       });
     });
-
-    var membershipBtn = document.getElementById('membership-btn');
-    if(membershipBtn){
-      membershipBtn.addEventListener('click', function(e){
-        e.preventDefault();
-        var target = document.getElementById('r-tier');
-        for(var i=0; i<target.options.length; i++){
-          if(target.options[i].value === 'LAB Atomic Club membership'){ target.selectedIndex = i; break; }
-        }
-        document.getElementById('contact').scrollIntoView({behavior: 'smooth'});
-      });
-    }
 
     // Progressive-enhancement scroll reveal: only hides content if JS runs
     // AND IntersectionObserver exists, so nothing ever disappears for anyone else.
