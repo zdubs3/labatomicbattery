@@ -830,22 +830,18 @@
       </div>
       <div class="or-divider">or send an inquiry</div>
 
-      <form class="contact-card" id="contact-form" method="POST">
-        <input type="hidden" name="_subject" value="New website inquiry">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" id="form-next">
+      <form class="contact-card" id="contact-form">
         <div>
           <label for="r-name">Name</label>
-          <input id="r-name" name="Name" type="text" placeholder="Your name" required>
+          <input id="r-name" type="text" placeholder="Your name" required>
         </div>
         <div>
           <label for="r-email">Email</label>
-          <input id="r-email" name="Email" type="email" placeholder="you@email.com" required>
+          <input id="r-email" type="email" placeholder="you@email.com" required>
         </div>
         <div>
           <label for="r-tier">I'm interested in</label>
-          <select id="r-tier" name="Interested in">
+          <select id="r-tier">
             <option value="Cub">Cub</option>
             <option value="Lion">Lion</option>
             <option value="Type E" selected>Type E (Lion Type E or Cub Type E)</option>
@@ -855,7 +851,7 @@
         </div>
         <div>
           <label for="r-message">Message (optional)</label>
-          <textarea id="r-message" name="Message" placeholder="Anything specific you'd like to know?"></textarea>
+          <textarea id="r-message" placeholder="Anything specific you'd like to know?"></textarea>
         </div>
         <div class="full">
           <div style="display:flex; justify-content:flex-end;">
@@ -915,31 +911,31 @@
     var form = document.getElementById('contact-form');
     var msg = document.getElementById('form-msg');
 
-    form.action = 'https://formsubmit.co/' + ownerEmail();
-    document.getElementById('form-next').value =
-      location.origin + location.pathname + '?sent=1#contact';
-
     form.addEventListener('submit', function(e){
+      e.preventDefault();
       var name = document.getElementById('r-name').value.trim();
       var email = document.getElementById('r-email').value.trim();
+      var tierSelect = document.getElementById('r-tier');
+      var tier = tierSelect.options[tierSelect.selectedIndex].value;
+      var message = document.getElementById('r-message').value.trim();
+
       if(!name || !email){
-        e.preventDefault();
         msg.textContent = 'Please add your name and email first.';
         msg.classList.remove('ok');
         return;
       }
-      msg.textContent = 'Sending...';
-      msg.classList.remove('ok');
-      // No preventDefault here — the form submits normally to FormSubmit,
-      // which redirects back to _next once it has processed it.
-    });
 
-    if(location.search.indexOf('sent=1') !== -1){
-      msg.textContent = 'Message received — looking forward to being in touch!';
+      var subject = 'New website inquiry — ' + tier;
+      var body = 'Name: ' + name + '\nEmail: ' + email + '\nInterested in: ' + tier +
+        (message ? '\nMessage: ' + message : '') +
+        '\n\n(Sent from the LAB website — no charge, no order placed.)';
+      var mailto = 'mailto:' + ownerEmail() + '?subject=' + encodeURIComponent(subject) +
+        '&body=' + encodeURIComponent(body);
+      window.location.href = mailto;
+
+      msg.textContent = 'Opening your email app to send the inquiry...';
       msg.classList.add('ok');
-      document.getElementById('contact').scrollIntoView();
-      history.replaceState(null, '', location.pathname + location.hash);
-    }
+    });
 
     var filmFrame = document.getElementById('film-frame');
     if(filmFrame){
