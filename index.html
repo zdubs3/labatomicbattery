@@ -484,10 +484,10 @@
 
   /* ---------- video-tape posts screen (in-flow, its own section) ---------- */
   .video-tape{
-    background: linear-gradient(160deg, #5a4127, #2e2013 55%, #1c1409);
+    background: linear-gradient(160deg, var(--accent) 0%, var(--accent-2) 50%, var(--accent-red) 100%);
     border-radius: 34px 34px 22px 22px; padding: 26px 24px 30px;
-    border: 3px solid #1a1108;
-    box-shadow: 0 0 40px color-mix(in srgb, var(--accent) 25%, transparent), inset 0 0 24px rgba(0,0,0,0.5);
+    border: 3px solid #0B0B0D;
+    box-shadow: 0 0 40px color-mix(in srgb, var(--accent) 25%, transparent), inset 0 0 24px rgba(0,0,0,0.35);
     max-width: 360px; margin: 40px auto 0; position: relative;
   }
   .video-tape .tv-antenna{
@@ -508,7 +508,16 @@
   }
   .video-tape .tv-knob::after{
     content:""; position:absolute; top:2px; left:50%; width:2px; height:7px;
-    background:#222; transform: translateX(-50%);
+    background:#222; transform: translateX(-50%) rotate(0deg); transform-origin: 1px 9px;
+    transition: transform 0.3s ease;
+  }
+  .video-tape .tv-knob{ cursor: pointer; transition: filter 0.2s ease; }
+  .video-tape .tv-knob:hover{ filter: brightness(1.25); }
+  .video-tape .tv-knob:active::after{ transform: translateX(-50%) rotate(50deg); }
+  .video-tape .tv-hint{
+    text-align:center; margin-top:10px; font-family:"Share Tech Mono", monospace;
+    font-size:0.68rem; letter-spacing:0.05em;
+    color: color-mix(in srgb, #fff 75%, transparent);
   }
   .video-screen{
     position: relative; width: 100%; aspect-ratio: 4/3;
@@ -671,7 +680,11 @@
           <div class="vt-caption">LAB &mdash; posted image</div>
         </div>
       </div>
-      <div class="tv-knobs"><div class="tv-knob"></div><div class="tv-knob"></div></div>
+      <div class="tv-knobs">
+        <div class="tv-knob" id="tv-knob-prev" role="button" tabindex="0" aria-label="Previous page"></div>
+        <div class="tv-knob" id="tv-knob-next" role="button" tabindex="0" aria-label="Next page"></div>
+      </div>
+      <div class="tv-hint">&#8592; click knobs to turn page &#8594;</div>
     </div>
   </div>
 
@@ -966,17 +979,38 @@
   (function(){
     function cycleFilmWheel(id, delayMs){
       var frame = document.getElementById(id);
-      if(!frame || frame.children.length < 2) return;
+      if(!frame || frame.children.length < 2) return null;
       var slides = frame.children;
       var index = 0;
-      setInterval(function(){
+      var timer = null;
+      function show(newIndex){
         slides[index].classList.remove('film-active');
-        index = (index + 1) % slides.length;
+        index = (newIndex + slides.length) % slides.length;
         slides[index].classList.add('film-active');
-      }, delayMs);
+      }
+      function restart(){
+        if(timer) clearInterval(timer);
+        timer = setInterval(function(){ show(index + 1); }, delayMs);
+      }
+      restart();
+      return {
+        next: function(){ show(index + 1); restart(); },
+        prev: function(){ show(index - 1); restart(); }
+      };
     }
     cycleFilmWheel('film-frame', 3000);
-    cycleFilmWheel('film-frame-2', 40000);
+    var wheel2 = cycleFilmWheel('film-frame-2', 40000);
+    if(wheel2){
+      var prevKnob = document.getElementById('tv-knob-prev');
+      var nextKnob = document.getElementById('tv-knob-next');
+      prevKnob.addEventListener('click', wheel2.prev);
+      nextKnob.addEventListener('click', wheel2.next);
+      [prevKnob, nextKnob].forEach(function(knob){
+        knob.addEventListener('keydown', function(e){
+          if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); knob.click(); }
+        });
+      });
+    }
 
     document.querySelectorAll('.opt-select-btn').forEach(function(btn){
       btn.addEventListener('click', function(){
