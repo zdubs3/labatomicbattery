@@ -29,7 +29,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="icons/icon-16.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&family=Frank+Ruhl+Libre:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 <style>
@@ -481,6 +481,64 @@
   @media (prefers-reduced-motion: reduce){
     .film-orbit{ animation: none; }
   }
+
+  /* ---------- video-tape posts screen (in-flow, its own section) ---------- */
+  .video-tape{
+    background: linear-gradient(160deg, #5a4127, #2e2013 55%, #1c1409);
+    border-radius: 34px 34px 22px 22px; padding: 26px 24px 30px;
+    border: 3px solid #1a1108;
+    box-shadow: 0 0 40px color-mix(in srgb, var(--accent) 25%, transparent), inset 0 0 24px rgba(0,0,0,0.5);
+    max-width: 360px; margin: 40px auto 0; position: relative;
+  }
+  .video-tape .tv-antenna{
+    position: absolute; top: -26px; left: 50%; width: 2px; height: 30px;
+    background: #555;
+  }
+  .video-tape .tv-antenna::before, .video-tape .tv-antenna::after{
+    content:""; position:absolute; bottom:0; width: 2px; height: 26px; background:#555;
+    transform-origin: bottom center;
+  }
+  .video-tape .tv-antenna::before{ transform: rotate(-32deg) translateX(-1px); }
+  .video-tape .tv-antenna::after{ transform: rotate(32deg) translateX(1px); }
+  .video-tape .tv-knobs{ display:flex; justify-content:center; gap:24px; margin-top:16px; }
+  .video-tape .tv-knob{
+    width: 22px; height: 22px; border-radius: 50%;
+    background: radial-gradient(circle at 35% 32%, #bbb, #555 70%, #222);
+    border: 1px solid #111; position: relative;
+  }
+  .video-tape .tv-knob::after{
+    content:""; position:absolute; top:2px; left:50%; width:2px; height:7px;
+    background:#222; transform: translateX(-50%);
+  }
+  .video-screen{
+    position: relative; width: 100%; aspect-ratio: 4/3;
+    border-radius: 26px; overflow: hidden; background: #0B0B0D;
+    border: 6px solid #0a0a0a; box-shadow: inset 0 0 30px rgba(0,0,0,0.85);
+  }
+  .video-screen > *{
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    opacity: 0; transition: opacity 0.7s ease;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .video-screen img, .video-screen video{ object-fit: contain; width: 100%; height: 100%; }
+  .video-screen > .film-active{ opacity: 1; }
+  .video-screen .vt-caption{
+    position:absolute; bottom:6px; left:0; right:0; text-align:center;
+    font-family:"Share Tech Mono", monospace; font-size:0.65rem;
+    letter-spacing:0.08em; color: color-mix(in srgb, var(--ink) 55%, transparent);
+    opacity: 1 !important; pointer-events:none;
+  }
+  .film-text{
+    flex-direction: column; gap: 10px; padding: 16px 14px; overflow-y: auto;
+    text-align: center; font-family: "VT323", "Share Tech Mono", monospace;
+    height: 100%; box-sizing: border-box;
+  }
+  .film-text .fx-title{ font-size: 1.2rem; color: var(--accent-2); letter-spacing: 0.04em; }
+  .film-text .fx-hebrew{
+    font-family: "Frank Ruhl Libre", "David Libre", serif; font-weight: 700;
+    font-size: 1.15rem; line-height: 1.7;
+  }
+  .film-text .fx-en{ font-size: 0.88rem; line-height: 1.4; color: var(--muted); }
 </style>
 
 <div class="page">
@@ -508,6 +566,7 @@
         <div><img src="torah.jpg" alt="Torah scroll"></div>
         <div><img src="peacock.jpg" alt="Peacock painting"></div>
         <div><img src="angel.jpg" alt="Angel painting"></div>
+        <div><img src="flowergirl.jpg" alt="Angel wings flower girl painting"></div>
       </div>
       <div class="film-sprockets"></div>
     </div>
@@ -578,6 +637,41 @@
         <span style="color:var(--accent);">Small enough for your cell phone,</span>
         <span style="color:var(--accent-red);">or big enough for a city.</span>
       </p>
+    </div>
+  </div>
+
+  <div class="wrap" style="padding: 20px 18px 40px;">
+    <div class="video-tape">
+      <div class="tv-antenna"></div>
+      <div class="video-screen" id="film-frame-2">
+        <div class="film-text film-active">
+          <div class="fx-hebrew" dir="rtl" style="font-size:1.3rem; color:var(--accent-2);">&#1505;&#1508;&#1512; &#1492;&#1497;&#1512;&#1495;</div>
+          <div class="fx-title"><span style="color:var(--accent-red); font-size:2.4rem; line-height:1;">&#127765;</span></div>
+          <div class="fx-title"><span style="color:var(--accent);">The Book of the Moon</span></div>
+        </div>
+        <div class="film-text">
+          <div class="fx-hebrew" dir="rtl">
+            <span style="color:var(--accent);">בנקודה אחת ברא הבורא בה כל העולמות.</span>
+            <span style="color:var(--accent-2);">מהתפשטות נקודא אחת.</span>
+          </div>
+          <div class="fx-hebrew" dir="rtl">
+            <span style="color:var(--accent-red);">יש רמז באטומיק נרג&#1523; התפשטות אטום אחת מתגלא אור לעולם.</span>
+            <span style="color:var(--accent);">התגלות נקודא אחת מהבורא בה בורא ומביא כל העולמות.</span>
+          </div>
+        </div>
+        <div class="film-text">
+          <div class="fx-en">
+            <span style="color:var(--accent-2);">One point divides into many.</span>
+            <span style="color:var(--accent);"> This is part of the formula of creation which G-d Almighty blessed be uses to create all of existence.</span>
+            <span style="color:var(--accent-red);"> It is hinted to in atomic energy &mdash; one atom gives off an enormous amount of energy in its separating into parts.</span>
+          </div>
+        </div>
+        <div>
+          <img src="flowergirl.jpg" alt="Angel wings flower girl painting">
+          <div class="vt-caption">LAB &mdash; posted image</div>
+        </div>
+      </div>
+      <div class="tv-knobs"><div class="tv-knob"></div><div class="tv-knob"></div></div>
     </div>
   </div>
 
@@ -825,6 +919,7 @@
       <div class="email-row">
         <a class="email-btn" href="mailto:wohlmoshe3@gmail.com">wohlmoshe3@gmail.com <span class="arrow">&rarr;</span></a>
         <a class="email-btn" href="https://www.instagram.com/Atomic_Battery_" target="_blank" rel="noopener">@Atomic_Battery_ <span class="arrow">&rarr;</span></a>
+        <a class="email-btn" href="https://www.instagram.com/lsquared_a_b" target="_blank" rel="noopener">@lsquared_a_b <span class="arrow">&rarr;</span></a>
       </div>
 
       <div style="display:flex; flex-direction:column; align-items:center; margin-top:56px;">
@@ -869,16 +964,19 @@
 
 <script>
   (function(){
-    var filmFrame = document.getElementById('film-frame');
-    if(filmFrame){
-      var filmSlides = filmFrame.children;
-      var filmIndex = 0;
+    function cycleFilmWheel(id, delayMs){
+      var frame = document.getElementById(id);
+      if(!frame || frame.children.length < 2) return;
+      var slides = frame.children;
+      var index = 0;
       setInterval(function(){
-        filmSlides[filmIndex].classList.remove('film-active');
-        filmIndex = (filmIndex + 1) % filmSlides.length;
-        filmSlides[filmIndex].classList.add('film-active');
-      }, 3000);
+        slides[index].classList.remove('film-active');
+        index = (index + 1) % slides.length;
+        slides[index].classList.add('film-active');
+      }, delayMs);
     }
+    cycleFilmWheel('film-frame', 3000);
+    cycleFilmWheel('film-frame-2', 40000);
 
     document.querySelectorAll('.opt-select-btn').forEach(function(btn){
       btn.addEventListener('click', function(){
